@@ -23,10 +23,10 @@ namespace com.controladdin.businesscentral
                 .AddJsonFile("local.settings.json", optional: true, reloadOnChange: true)
                 .AddEnvironmentVariables()
                 .Build();
-
+ 
             var bcConfig = new ConnectorConfig(config);
-
-            var composer = new WebPageComposer();
+            var composer = new WebPageComposer(context);
+            
             var replyText = composer.Compose(bcConfig);
 
             var response = new HttpResponseMessage(HttpStatusCode.OK);
