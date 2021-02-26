@@ -1,5 +1,5 @@
     function PostToBc(parameter) {
         alert(parameter);
-        Microsoft.Dynamics.NAV.InvokeExtensibilityMethod("PostToBc", parameter);        
+        Microsoft.Dynamics.NAV.InvokeExtensibilityMethod('OnBcPageCallBack', [parameter]);
         return true;
     }
