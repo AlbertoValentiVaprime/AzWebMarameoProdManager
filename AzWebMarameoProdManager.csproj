@@ -16,7 +16,7 @@
     </Content>    
     <Content Include="websitedemo.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>    
+    </Content>
     <Content Include="website.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>    

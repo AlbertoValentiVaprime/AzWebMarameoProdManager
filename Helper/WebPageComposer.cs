@@ -18,7 +18,6 @@ namespace com.controladdin.businesscentral
         {
             var message = new StringBuilder();
 
-
             message.AppendLine("<!DOCTYPE html>");
             message.AppendLine("<html>");
             message.AppendLine("  <head>");
@@ -43,22 +42,19 @@ namespace com.controladdin.businesscentral
         public string ComposeCss()
         {
             var path = Path.Combine(context.FunctionDirectory, "../website.css");
-            var content = File.ReadAllText(path);
-            return content;
+            return File.ReadAllText(path);
         }
 
         public string ComposeJavaScript()
         {
             var path = Path.Combine(context.FunctionDirectory, "../website.js");
-            var content = File.ReadAllText(path);
-            return content;
+            return File.ReadAllText(path);
         }
 
         public string ComposeHtml()
         {
             var path = Path.Combine(context.FunctionDirectory, "../websitedemo.html");
-            var content = File.ReadAllText(path);
-            return content;
+            return File.ReadAllText(path);
         }
     }
 }
