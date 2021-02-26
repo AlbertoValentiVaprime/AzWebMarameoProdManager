@@ -25,6 +25,9 @@ namespace com.controladdin.businesscentral
             message.AppendLine("    <title>Production Management</title>");
             message.AppendLine("    <meta name=\"viewport\" content=\"initial-scale=1.0\">");
             message.AppendLine("    <meta charset=\"utf-8\">");
+            message.AppendLine("    <script language='javascript'>");
+            message.AppendLine(ComposeJavaScript());
+            message.AppendLine("    </script>");
             message.AppendLine("    <style>");
             message.AppendLine(ComposeCss());
             message.AppendLine("    </style>");
