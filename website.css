@@ -94,7 +94,7 @@ button:hover {
   box-shadow: none;
 }
 
-@media (max-width: 425px) {
+@media (max-width: 250px) {
   form {
     width: 100%;
   }
@@ -149,6 +149,31 @@ button:hover {
 }x
 
 .button_green:hover {
+  letter-spacing: 2px;
+  box-shadow: none;
+}
+
+
+.row25 {
+  display: flex;
+}
+
+.column25 {
+  flex: 50%;
+}
+
+
+
+.button_demo {
+  background: #3d6098;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0 8px 6px -6px #555;
+}
+
+.button_demo:hover {
   letter-spacing: 2px;
   box-shadow: none;
 }

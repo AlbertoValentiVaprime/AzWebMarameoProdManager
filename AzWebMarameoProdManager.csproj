@@ -14,6 +14,9 @@
     <Content Include="website.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>    
+    <Content Include="websitedemo.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>    
     <Content Include="website.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>    

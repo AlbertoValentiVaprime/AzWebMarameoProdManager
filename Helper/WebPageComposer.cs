@@ -53,7 +53,7 @@ namespace com.controladdin.businesscentral
 
         public string ComposeHtml()
         {
-            var path = Path.Combine(context.FunctionDirectory, "../website.html");
+            var path = Path.Combine(context.FunctionDirectory, "../websitedemo.html");
             var content = File.ReadAllText(path);
             return content;
         }
