@@ -19,17 +19,20 @@ body {
 }
 
 form {
-  width: 400px;
+  width: 100%;
   display: flex;
   flex-flow: column wrap;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  align-items: stretch;
+
 }
 form div,
 form label,
 form input,
 form textarea {
-  width: 100%;
+  width: 95%;
 }
 
 .field:nth-of-type(2) {
@@ -91,27 +94,61 @@ button:hover {
   box-shadow: none;
 }
 
-.social-media {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
-}
-:not(.social-media) {
-  font-size: 14px;
-}
-.social-media span {
-  font-size: 16px;
-}
-.social-media span .fas {
-  margin: 0 0 0 10px;
-}
-.social-media a {
-  color: #000;
-  font-size: 20px;
-}
-
 @media (max-width: 425px) {
   form {
     width: 100%;
   }
+}
+
+.row {
+  display: flex;
+}
+
+.column {
+  flex: 50%;
+}
+
+.rownbuttons {
+  display: flex;
+}
+
+.columnbuttons {
+  flex: 25%;
+}
+
+.columnbuttons4 {
+  flex: 12%;
+}
+
+.button_red {
+  width: 33%;
+  background: #d35400;
+  margin: 16px 0 50px 0;
+  padding: 8px 16px;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0 8px 6px -6px #555;
+}
+.button_red:hover {
+  letter-spacing: 2px;
+  box-shadow: none;
+}
+
+.button_green {
+  width: 33%;
+  background: #27ae60;
+  margin: 16px 0 50px 0;
+  padding: 8px 16px;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0 8px 6px -6px #555;
+}x
+
+.button_green:hover {
+  letter-spacing: 2px;
+  box-shadow: none;
 }

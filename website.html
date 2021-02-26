@@ -1,65 +1,195 @@
 <div class="container">
 	<form>
-		<div class="field" tabindex="1">
-			<label for="username">
-				<i class="far fa-user"></i>Mitarbeiter
-			</label>
-			<input name="field1" type="text" placeholder="" required>
+
+		<div class="row">
+			<div class="column">
+
+				<div class="field" tabindex="1">
+					<label for="mitarbeiter">
+						<i class="far fa-user"></i>Mitarbeiter
+					</label>
+					<input name="mitarbeiter" type="text" placeholder="" required>
+				</div>
+				
+				<div class="field" tabindex="2">
+					<label for="fanr">
+						<i class="far fa-envelope"></i>FA-Nr
+					</label>
+					<input name="fanr" type="text" placeholder="" required>
+				</div>
+		
+				<div class="field" tabindex="3">
+					<label for="arbeitsgangnr">
+						<i class="far fa-edit"></i>Arbeitsgangnr
+					</label>
+					<input name="arbeitsgangnr" placeholder="" required></input>
+				</div>
+			
+				<div class="field" tabindex="4">
+					<label for="status">
+						<i class="far fa-edit"></i>Status
+					</label>
+					<input name="status" required></input>
+				</div>
+				
+			</div>
+
+			<div class="column">
+
+				<div class="field" tabindex="5">
+					<label for="maschinenart">
+						<i class="far fa-edit"></i>Maschinenart
+					</label>
+					<input name="maschinenart" placeholder="" required></input>
+				</div>
+
+				<div class="field" tabindex="6">
+					<label for="maschinennr">
+						<i class="far fa-edit"></i>Maschinennr
+					</label>
+					<input name="maschinennr" placeholder="" required></input>
+				</div>
+
+				<div class="field" tabindex="7">
+					<label for="beschreibung">
+						<i class="far fa-edit"></i>Beschreibung
+					</label>
+					<input name="beschreibung" placeholder="" required></input>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="row">
+
+			<div class="column">
+				
+					<button class="button_green">Start Rüsten</button>
+
+					<button class="button_red">Ende Rüsten</button>
+
+					<button class="button_green">Start Bearbeiten</button>
+
+					<button class="button_red">Ende Bearbeiten</button>
+
+					<button class="button_green">Start Stillstand</button>
+
+					<button class="button_red">Ende Stillstand</button>
+
+			</div>
+
+			<div class="column">
+				
+				<div class="field" tabindex="8">
+					<label for="rustzeit">
+						<i class="far fa-edit"></i>Rüstzeit
+					</label>
+					<input name="rustzeit" placeholder="" required></input>
+				</div>
+
+				<div class="field" tabindex="9">
+					<label for="bearbeitungszeit">
+						<i class="far fa-edit"></i>Bearbeitungszeit
+					</label>
+					<input name="bearbeitungszeit" placeholder="" required></input>
+				</div>
+
+				<div class="field" tabindex="10">
+					<label for="stillstandszeit">
+						<i class="far fa-edit"></i>Stillstandszeit
+					</label>
+					<input name="stillstandszeit" placeholder="" required></input>
+				</div>
+
+				<div class="field" tabindex="11">
+					<label for="stillstandscode">
+						<i class="far fa-edit"></i>Stillstandscode
+					</label>
+					<input name="stillstandscode" placeholder="" required></input>
+				</div>
+
+			</div>
+
 		</div>
 		
-		<div class="field" tabindex="2">
-			<label for="email">
-				<i class="far fa-envelope"></i>FA-Nr
-			</label>
-			<input name="field2" type="text" placeholder="" required>
+
+		<div class="row">
+
+			<div class="column">
+
+				<button class="button_green">Ist - Meldung</button>
+
+				<button class="button_red">Ausschuss</button>
+				
+			</div>
+
+			<div class="column">
+
+				<div class="field" tabindex="10">
+					<label for="fertiggestmenge">
+						<i class="far fa-edit"></i>Fertig gest. Menge:
+					</label>
+					<input name="fertiggestmenge:" placeholder="" required></input>
+				</div>
+
+				<div class="field" tabindex="10">
+					<label for="ausschussmenge">
+						<i class="far fa-edit"></i>Ausschussmenge:
+					</label>
+					<input name="ausschussmenge" placeholder="" required></input>
+				</div>
+
+			</div>
+
 		</div>
 
-		<div class="field" tabindex="3">
-			<label for="message">
-				<i class="far fa-edit"></i>Arbeitsgangnr
-			</label>
-			<input name="field3" placeholder="" required></input>
-		</div>
-	
-		<div class="field" tabindex="4">
-			<label for="message">
-				<i class="far fa-edit"></i>Status
-			</label>
-			<input name="field4" placeholder="type here" required></input>
+		<div class="row">
+
+			<div class="column">
+
+				<div class="field" tabindex="10">
+					<label for="aktion">
+						<i class="far fa-edit"></i>Aktion:
+					</label>
+					<input name="aktion" placeholder="" required></input>
+				</div>
+
+				<div class="field" tabindex="10">
+					<label for="eingabe">
+						<i class="far fa-edit"></i>Eingabe:
+					</label>
+					<input name="eingabe" placeholder="" required></input>
+				</div>
+
+				<div class="field" tabindex="10">
+					<label for="meldung">
+						<i class="far fa-edit"></i>Meldung:
+					</label>
+					<input name="meldung" placeholder="" required></input>
+				</div>
+
+			</div>
+
 		</div>
 
-		<div class="field" tabindex="5">
-			<label for="message">
-				<i class="far fa-edit"></i>Maschinenart
-			</label>
-			<input name="field5" placeholder="type here" required></input>
-		</div>
+		
+		<div class="rownbuttons">
 
-		<div class="field" tabindex="6">
-			<label for="message">
-				<i class="far fa-edit"></i>Maschinennr
-			</label>
-			<input name="field6" placeholder="type here" required></input>
-		</div>
+			<div class="columnbuttons">
+				<button>Buchen</button>
+			</div>
+			<div class="columnbuttons">
+				<button>Arbeitsgang überspringen</button>
+			</div>
+			<div class="columnbuttons">
+				<button>Arbeitsgang beenden</button>
+			</div>
+			<div class="columnbuttons">
+				<button>Benutzer wechseln</button>
+			</div>
+			<div class="columnbuttons">
+				<button>Maschine wechseln</button>
+			</div>
 
-		<div class="field" tabindex="7">
-			<label for="message">
-				<i class="far fa-edit"></i>Beschreibung
-			</label>
-			<input name="field7" placeholder="type here" required></input>
-		</div>
-
-		<div class="field" tabindex="8">
-			<label for="message">
-				<i class="far fa-edit"></i>Beschreibung
-			</label>
-			<input name="field8" placeholder="type here" required></input>
-		</div>
-
-		<button type="reset">Buchen</button>
-		<button >Arbeitsgang überspringen</button>
-		<button >Arbeitsgang beenden</button>
-		<button >Benutzer wechseln</button>
-		<button >Maschine wechseln</button>
 	</form>
 </div> 
