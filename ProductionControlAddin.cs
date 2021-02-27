@@ -25,9 +25,9 @@ namespace com.controladdin.businesscentral
                 .Build();
  
             var bcConfig = new ConnectorConfig(config);
-            var composer = new WebPageComposer(context);
+            var composer = new WebPageComposer(context, bcConfig);
             
-            var replyText = composer.Compose(bcConfig);
+            var replyText = composer.Compose();
 
             var response = new HttpResponseMessage(HttpStatusCode.OK);
             response.Content = new StringContent(replyText);

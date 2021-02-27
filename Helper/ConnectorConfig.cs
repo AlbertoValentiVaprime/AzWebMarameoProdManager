@@ -14,7 +14,10 @@ namespace com.controladdin.businesscentral
                 WebServiceUser = config["WebServiceUser"];
                 WebServicePassword = config["WebServicePassword"];
                 WebServiceGetUrl = config["WebServiceGetUrl"];
-                WebServicePostUrl = config["WebServicePostUrl"];
+                LocalPage = config["LocalPage"];
+
+                if (string.IsNullOrEmpty(LocalPage))
+                    LocalPage = "websitedemo.html";
             }
         }
 
@@ -24,5 +27,6 @@ namespace com.controladdin.businesscentral
         public string WebServiceGetUrl;
         public string WebServicePostUrl;
 
+        public string LocalPage;
     }
 }

@@ -10,11 +10,13 @@ namespace com.controladdin.businesscentral
     {
 
         private ExecutionContext context;
-        public WebPageComposer(ExecutionContext context)
+        private ConnectorConfig config;
+        public WebPageComposer(ExecutionContext context, ConnectorConfig config)
         {
             this.context = context;
+            this.config = config;
         }
-        public string Compose(ConnectorConfig config)
+        public string Compose()
         {
             var message = new StringBuilder();
 
@@ -53,7 +55,8 @@ namespace com.controladdin.businesscentral
 
         public string ComposeHtml()
         {
-            var path = Path.Combine(context.FunctionDirectory, "../websitedemo.html");
+            var page = config.LocalPage;
+            var path = Path.Combine(context.FunctionDirectory, "../" + page);
             return File.ReadAllText(path);
         }
     }
