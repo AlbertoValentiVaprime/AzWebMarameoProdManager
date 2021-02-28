@@ -16,9 +16,9 @@ body {
   flex-flow: row nowrap;
   align-items: center;
   justify-content: center;
-
+  margin-top: 10px;
   overflow: auto;
-  position: absolute;
+  xxposition: absolute;
   overflow-y: scroll;
    
 }
@@ -151,7 +151,7 @@ button:hover {
   border-radius: 4px;
   cursor: pointer;
   box-shadow: 0 8px 6px -6px #555;
-}x
+}
 
 .button_green:hover {
   letter-spacing: 2px;
@@ -166,8 +166,6 @@ button:hover {
 .column25 {
   flex: 50%;
 }
-
-
 
 .button_demo {
   background: #3d6098;
