@@ -16,6 +16,11 @@ body {
   flex-flow: row nowrap;
   align-items: center;
   justify-content: center;
+
+  overflow: auto;
+  position: absolute;
+  overflow-y: scroll;
+   
 }
 
 form {
