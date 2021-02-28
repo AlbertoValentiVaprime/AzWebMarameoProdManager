@@ -10,7 +10,7 @@ function PostToBc(parameter) {
             parameter,
         );
         var json = vm.serialize().toString();
-        CallJavaScript('OnBcPageCallBack', [json]);
+        CallJavaScript(json);
         console.log(json);
         return true;
     } catch (err) {
@@ -23,7 +23,7 @@ function PostToBcDemo(parameter) {
 
     try {
         console.log(parameter);
-        CallJavaScript('OnBcPageCallBack', [parameter]);
+        CallJavaScript(parameter);
         return true;
     } catch (err) {
         alert('Error: ' + parameter + ' -  ' + err);
