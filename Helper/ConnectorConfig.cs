@@ -17,7 +17,7 @@ namespace com.controladdin.businesscentral
                 LocalPage = config["LocalPage"];
 
                 if (string.IsNullOrEmpty(LocalPage))
-                    LocalPage = "websitedemo.html";
+                    LocalPage = "websitedemo2.html";
             }
         }
 

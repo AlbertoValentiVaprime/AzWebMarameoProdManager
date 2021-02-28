@@ -9,9 +9,9 @@ using System.Net.Http.Headers;
 
 namespace com.controladdin.businesscentral
 {
-    public static class ProductionControlAddin
+    public static class TestHtmlPage
     {
-        [FunctionName("Production")]
+        [FunctionName("TestHtmlPage")]
         public static async Task<HttpResponseMessage> Run(
            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)]
            HttpRequestMessage req,
@@ -27,7 +27,7 @@ namespace com.controladdin.businesscentral
             var bcConfig = new ConnectorConfig(config);
             var composer = new WebPageComposer(context, bcConfig);
             
-            var replyText = composer.GetPage();
+            var replyText = composer.GetStaticPage();
 
             var response = new HttpResponseMessage(HttpStatusCode.OK);
             response.Content = new StringContent(replyText);

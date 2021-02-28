@@ -8,16 +8,19 @@
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="website.css">
+    <Content Include="website/website.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>    
-    <Content Include="website.html">
+    <Content Include="website/webpage_order.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>    
-    <Content Include="websitedemo.html">
+    <Content Include="website/webpage_production.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="website.js">
+    <Content Include="website/webpage_static.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="website/website.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>    
     <None Update="host.json">

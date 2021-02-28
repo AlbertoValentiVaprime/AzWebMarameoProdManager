@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>AZURE</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-debug.js" />
+
+	<script type="text/javascript">
+		function LoadPage() {
+			alert('ciao');
+			url = 'https://www.microsoft.com';
+			try {
+				setTimeout(function () {
+					DelayedLoadPage(url);
+				}, 1000);
+			}
+			catch (err) {
+				alert(err);
+			}
+
+		}
+
+		function DelayedLoadPage(url) {
+
+			try {
+				alert(url);
+				$.ajax({
+					url: url,
+					xhrFields: {
+						withCredentials: true
+					}
+				}
+				).done(function (data) {
+					$("#controlAddIn").text(data);
+				});
+
+			}
+			catch (err) {
+				alert(err);
+			}
+
+		}
+	</script>
+</head>
+
+
+<body>
+
+	<h1>My First Heading</h1>
+
+	<p>My first paragraph.</p>
+
+	<a href="javascript:void(0)" onclick="LoadPage();">LOAD</a>
+
+</body>
+
+</html>

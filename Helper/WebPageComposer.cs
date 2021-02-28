@@ -16,7 +16,7 @@ namespace com.controladdin.businesscentral
             this.context = context;
             this.config = config;
         }
-        public string Compose()
+        public string GetPage()
         {
             var message = new StringBuilder();
 
@@ -43,21 +43,32 @@ namespace com.controladdin.businesscentral
 
         public string ComposeCss()
         {
-            var path = Path.Combine(context.FunctionDirectory, "../website.css");
+            var path = Path.Combine(context.FunctionDirectory, "../website/website.css");
             return File.ReadAllText(path);
         }
 
         public string ComposeJavaScript()
         {
-            var path = Path.Combine(context.FunctionDirectory, "../website.js");
+            var path = Path.Combine(context.FunctionDirectory, "../website/website.js");
             return File.ReadAllText(path);
         }
 
         public string ComposeHtml()
         {
             var page = config.LocalPage;
-            var path = Path.Combine(context.FunctionDirectory, "../" + page);
+            var path = Path.Combine(context.FunctionDirectory, "../website/" + page);
             return File.ReadAllText(path);
+        }
+
+        public string GetStaticPage()
+        {
+            var message = new StringBuilder();
+            var page = config.LocalPage;
+            var path = Path.Combine(context.FunctionDirectory, "../website/webpage_static.html");
+
+            message.AppendLine(File.ReadAllText(path));
+
+            return message.ToString();
         }
     }
 }
