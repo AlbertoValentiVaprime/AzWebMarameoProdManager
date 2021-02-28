@@ -3,13 +3,12 @@
 
 <head>
 	<title>AZURE</title>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-debug.js" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-debug.js"></script>
 
 	<script type="text/javascript">
 		function LoadPage() {
-			alert('ciao');
-			url = 'https://www.microsoft.com';
 			try {
+				url = 'https://www.microsoft.com';
 				setTimeout(function () {
 					DelayedLoadPage(url);
 				}, 1000);
@@ -23,7 +22,6 @@
 		function DelayedLoadPage(url) {
 
 			try {
-				alert(url);
 				$.ajax({
 					url: url,
 					xhrFields: {
