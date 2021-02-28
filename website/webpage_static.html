@@ -21,6 +21,7 @@
 		function DelayedLoadPage(url) {
 
 			try {
+				alert(url);
 				$.ajax({
 					url: url,
 					xhrFields: {
@@ -48,7 +49,7 @@
 	<p>My first paragraph.</p>
 
 	<a href="javascript:void(0)" onclick="LoadPage();">LOAD</a><br>
-	
+
 	<iframe id="controlAddIn"></iframe>
 </body>
 
