@@ -10,8 +10,7 @@ function PostToBc(parameter) {
             parameter,
         );
         var json = vm.serialize().toString();
-        alert('InvokeExtensibilityMethod:' + json);
-        Microsoft.Dynamics.NAV.InvokeExtensibilityMethod('OnBcPageCallBack', [json]);
+        CallJavaScript('OnBcPageCallBack', [json]);
         console.log(json);
         return true;
     } catch (err) {
@@ -24,7 +23,7 @@ function PostToBcDemo(parameter) {
 
     try {
         console.log(parameter);
-        Microsoft.Dynamics.NAV.InvokeExtensibilityMethod('OnBcPageCallBack', [parameter]);
+        CallJavaScript('OnBcPageCallBack', [parameter]);
         return true;
     } catch (err) {
         alert('Error: ' + parameter + ' -  ' + err);
