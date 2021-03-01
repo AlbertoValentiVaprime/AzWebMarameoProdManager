@@ -1,5 +1,5 @@
 <div class="container" id="prodform">
-	<form>
+	<form action="javascript:void(0);">
 
 		<div class="row">
 			<div class="column">
@@ -8,28 +8,28 @@
 					<label for="mitarbeiter">
 						<i class="far fa-user"></i>Mitarbeiter
 					</label>
-					<input name="mitarbeiter" type="text" placeholder="" required>
+					<input name="mitarbeiter" type="text" placeholder="" >
 				</div>
 				
 				<div class="field" tabindex="2">
 					<label for="fanr">
 						<i class="far fa-envelope"></i>FA-Nr
 					</label>
-					<input id="fanr" name="fanr" type="text" placeholder="" required>
+					<input id="fanr" name="fanr" type="text" placeholder="" >
 				</div>
 		
 				<div class="field" tabindex="3">
 					<label for="arbeitsgangnr">
 						<i class="far fa-edit"></i>Arbeitsgangnr
 					</label>
-					<input name="arbeitsgangnr" placeholder="" required></input>
+					<input name="arbeitsgangnr" placeholder="" ></input>
 				</div>
 			
 				<div class="field" tabindex="4">
 					<label for="status">
 						<i class="far fa-edit"></i>Status
 					</label>
-					<input name="status" required></input>
+					<input name="status" ></input>
 				</div>
 				
 			</div>
@@ -40,21 +40,21 @@
 					<label for="maschinenart">
 						<i class="far fa-edit"></i>Maschinenart
 					</label>
-					<input name="maschinenart" placeholder="" required></input>
+					<input name="maschinenart" placeholder="" ></input>
 				</div>
 
 				<div class="field" tabindex="6">
 					<label for="maschinennr">
 						<i class="far fa-edit"></i>Maschinennr
 					</label>
-					<input name="maschinennr" placeholder="" required></input>
+					<input name="maschinennr" placeholder="" ></input>
 				</div>
 
 				<div class="field" tabindex="7">
 					<label for="beschreibung">
 						<i class="far fa-edit"></i>Beschreibung
 					</label>
-					<input name="beschreibung" placeholder="" required></input>
+					<input name="beschreibung" placeholder="" ></input>
 				</div>
 
 			</div>
@@ -84,28 +84,28 @@
 					<label for="rustzeit">
 						<i class="far fa-edit"></i>Rüstzeit
 					</label>
-					<input name="rustzeit" placeholder="" required></input>
+					<input name="rustzeit" placeholder="" ></input>
 				</div>
 
 				<div class="field" tabindex="9">
 					<label for="bearbeitungszeit">
 						<i class="far fa-edit"></i>Bearbeitungszeit
 					</label>
-					<input name="bearbeitungszeit" placeholder="" required></input>
+					<input name="bearbeitungszeit" placeholder="" ></input>
 				</div>
 
 				<div class="field" tabindex="10">
 					<label for="stillstandszeit">
 						<i class="far fa-edit"></i>Stillstandszeit
 					</label>
-					<input name="stillstandszeit" placeholder="" required></input>
+					<input name="stillstandszeit" placeholder="" ></input>
 				</div>
 
 				<div class="field" tabindex="11">
 					<label for="stillstandscode">
 						<i class="far fa-edit"></i>Stillstandscode
 					</label>
-					<input name="stillstandscode" placeholder="" required></input>
+					<input name="stillstandscode" placeholder="" ></input>
 				</div>
 
 			</div>
@@ -129,14 +129,14 @@
 					<label for="fertiggestmenge">
 						<i class="far fa-edit"></i>Fertig gest. Menge:
 					</label>
-					<input name="fertiggestmenge:" placeholder="" required></input>
+					<input name="fertiggestmenge:" placeholder="" ></input>
 				</div>
 
 				<div class="field" tabindex="10">
 					<label for="ausschussmenge">
 						<i class="far fa-edit"></i>Ausschussmenge:
 					</label>
-					<input name="ausschussmenge" placeholder="" required></input>
+					<input name="ausschussmenge" placeholder="" ></input>
 				</div>
 
 			</div>
@@ -151,21 +151,21 @@
 					<label for="aktion">
 						<i class="far fa-edit"></i>Aktion:
 					</label>
-					<input name="aktion" placeholder="" required></input>
+					<input name="aktion" placeholder="" ></input>
 				</div>
 
 				<div class="field" tabindex="10">
 					<label for="eingabe">
 						<i class="far fa-edit"></i>Eingabe:
 					</label>
-					<input name="eingabe" placeholder="" required></input>
+					<input name="eingabe" placeholder="" ></input>
 				</div>
 
 				<div class="field" tabindex="10">
 					<label for="meldung">
 						<i class="far fa-edit"></i>Meldung:
 					</label>
-					<input name="meldung" placeholder="" required></input>
+					<input name="meldung" placeholder="" ></input>
 				</div>
 
 			</div>
@@ -177,19 +177,19 @@
 
 			<div class="columnbuttons">
 				
-				<button onclick="javascript:PostToBc('Buchen')">Buchen</button>
+				<button onclick="PostToBc('Buchen')">Buchen</button>
 			</div>
 			<div class="columnbuttons">
-				<button onclick="javascript:PostToBc('Arbeitsgang1')">Arbeitsgang überspringen</button>
+				<button onclick="PostToBcDemo('Arbeitsgang1')">Arbeitsgang überspringen</button>
 			</div>
 			<div class="columnbuttons">
-				<button onclick="javascript:PostToBc('Arbeitsgang2')">Arbeitsgang beenden</button>
+				<button onclick="PostToBc('Arbeitsgang2')">Arbeitsgang beenden</button>
 			</div>
 			<div class="columnbuttons">
-				<button onclick="javascript:PostToBc('Benutzer')">Benutzer wechseln</button>
-			</div>
+				<button onclick="PostToBc('Benutzer')">Benutzer wechseln</button>
+			</div> 
 			<div class="columnbuttons">
-				<button onclick="javascript:PostToBc('Maschine')">Maschine wechseln</button>
+				<button onclick="PostToBc('Maschine')">Maschine wechseln</button>
 			</div>
 
 	</form>

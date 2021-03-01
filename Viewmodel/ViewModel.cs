@@ -10,6 +10,7 @@ namespace MarameoProductionTerminal
         public string User { get; set; }
         public string ProdOrderNo { get; set; }
         public string OperationNo { get; set; }
+        
         public string MachineNo { get; set; }
         public string Description { get; set; }
         public string Output { get; set; }
