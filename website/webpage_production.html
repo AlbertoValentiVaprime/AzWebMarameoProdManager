@@ -5,31 +5,31 @@
 			<div class="column">
 
 				<div class="field" tabindex="1">
-					<label for="mitarbeiter">
+					<label for="UserValue">
 						<i class="far fa-user"></i>Mitarbeiter
 					</label>
-					<input name="mitarbeiter" type="text" placeholder="" >
+					<input name="UserValue" type="text" placeholder="" >
 				</div>
 				
 				<div class="field" tabindex="2">
-					<label for="fanr">
+					<label for="ProductionOrderNo">
 						<i class="far fa-envelope"></i>FA-Nr
 					</label>
-					<input id="fanr" name="fanr" type="text" placeholder="" >
+					<input id="ProductionOrderNo" name="fanr" type="text" placeholder="" >
 				</div>
 		
 				<div class="field" tabindex="3">
-					<label for="arbeitsgangnr">
+					<label for="OperationNo">
 						<i class="far fa-edit"></i>Arbeitsgangnr
 					</label>
-					<input name="arbeitsgangnr" placeholder="" ></input>
+					<input name="OperationNo" placeholder="" ></input>
 				</div>
 			
 				<div class="field" tabindex="4">
-					<label for="status">
+					<label for="Status">
 						<i class="far fa-edit"></i>Status
 					</label>
-					<input name="status" ></input>
+					<input name="Status" ></input>
 				</div>
 				
 			</div>
@@ -37,24 +37,24 @@
 			<div class="column">
 
 				<div class="field" tabindex="5">
-					<label for="maschinenart">
+					<label for="MachineType">
 						<i class="far fa-edit"></i>Maschinenart
 					</label>
-					<input name="maschinenart" placeholder="" ></input>
+					<input name="MachineType" placeholder="" ></input>
 				</div>
 
 				<div class="field" tabindex="6">
-					<label for="maschinennr">
+					<label for="MachineNo">
 						<i class="far fa-edit"></i>Maschinennr
 					</label>
-					<input name="maschinennr" placeholder="" ></input>
+					<input name="MachineNo" placeholder="" ></input>
 				</div>
 
 				<div class="field" tabindex="7">
-					<label for="beschreibung">
+					<label for="Description">
 						<i class="far fa-edit"></i>Beschreibung
 					</label>
-					<input name="beschreibung" placeholder="" ></input>
+					<input name="Description" placeholder="" ></input>
 				</div>
 
 			</div>
@@ -64,48 +64,48 @@
 
 			<div class="column">
 				
-					<button class="button_green">Start Rüsten</button>
+					<button class="button_green" onclick="PostToBc('StartSetupButton')">Start Rüsten</button>
 
-					<button class="button_red">Ende Rüsten</button>
+					<button class="button_red" onclick="PostToBc('EndSetupButton')">Ende Rüsten</button>
 
-					<button class="button_green">Start Bearbeiten</button>
+					<button class="button_green" onclick="PostToBc('StartProcessButton')">Start Bearbeiten</button>
 
-					<button class="button_red">Ende Bearbeiten</button>
+					<button class="button_red" onclick="PostToBc('EndProcessButton')">Ende Bearbeiten</button>
 
-					<button class="button_green">Start Stillstand</button>
+					<button class="button_green" onclick="PostToBc('StartIdleButton')">Start Stillstand</button>
 
-					<button class="button_red">Ende Stillstand</button>
+					<button class="button_red" onclick="PostToBc('EndIdleButton')">Ende Stillstand</button>
 
 			</div>
 
 			<div class="column">
 				
 				<div class="field" tabindex="8">
-					<label for="rustzeit">
+					<label for="SetupTime">
 						<i class="far fa-edit"></i>Rüstzeit
 					</label>
-					<input name="rustzeit" placeholder="" ></input>
+					<input name="SetupTime" placeholder="" ></input>
 				</div>
 
 				<div class="field" tabindex="9">
-					<label for="bearbeitungszeit">
+					<label for="ProcessingTime">
 						<i class="far fa-edit"></i>Bearbeitungszeit
 					</label>
-					<input name="bearbeitungszeit" placeholder="" ></input>
+					<input name="ProcessingTime" placeholder="" ></input>
 				</div>
 
 				<div class="field" tabindex="10">
-					<label for="stillstandszeit">
+					<label for="IdleTime">
 						<i class="far fa-edit"></i>Stillstandszeit
 					</label>
-					<input name="stillstandszeit" placeholder="" ></input>
+					<input name="IdleTime" placeholder="" ></input>
 				</div>
 
 				<div class="field" tabindex="11">
-					<label for="stillstandscode">
+					<label for="IdleCode">
 						<i class="far fa-edit"></i>Stillstandscode
 					</label>
-					<input name="stillstandscode" placeholder="" ></input>
+					<input name="IdleCode" placeholder="" ></input>
 				</div>
 
 			</div>
@@ -117,26 +117,26 @@
 
 			<div class="column">
 
-				<button class="button_green">Ist - Meldung</button>
+				<button class="button_green" onclick="PostToBc('OutPutButton')">Ist - Meldung</button>
 
-				<button class="button_red">Ausschuss</button>
+				<button class="button_red" onclick="PostToBc('ScrapButton')">Ausschuss</button>
 				
 			</div>
 
 			<div class="column">
 
 				<div class="field" tabindex="10">
-					<label for="fertiggestmenge">
+					<label for="FinishedQuantity">
 						<i class="far fa-edit"></i>Fertig gest. Menge:
 					</label>
-					<input name="fertiggestmenge:" placeholder="" ></input>
+					<input name="FinishedQuantity:" placeholder="" ></input>
 				</div>
 
 				<div class="field" tabindex="10">
-					<label for="ausschussmenge">
+					<label for="ScrapQunatity">
 						<i class="far fa-edit"></i>Ausschussmenge:
 					</label>
-					<input name="ausschussmenge" placeholder="" ></input>
+					<input name="ScrapQunatity" placeholder="" ></input>
 				</div>
 
 			</div>
@@ -148,24 +148,24 @@
 			<div class="column">
 
 				<div class="field" tabindex="10">
-					<label for="aktion">
+					<label for="Action">
 						<i class="far fa-edit"></i>Aktion:
 					</label>
-					<input name="aktion" placeholder="" ></input>
+					<input name="Action" placeholder="" ></input>
 				</div>
 
 				<div class="field" tabindex="10">
-					<label for="eingabe">
+					<label for="Input">
 						<i class="far fa-edit"></i>Eingabe:
 					</label>
-					<input name="eingabe" placeholder="" ></input>
+					<input name="Input" placeholder="" ></input>
 				</div>
 
 				<div class="field" tabindex="10">
-					<label for="meldung">
+					<label for="Output">
 						<i class="far fa-edit"></i>Meldung:
 					</label>
-					<input name="meldung" placeholder="" ></input>
+					<input name="Output" placeholder="" ></input>
 				</div>
 
 			</div>
@@ -177,19 +177,19 @@
 
 			<div class="columnbuttons">
 				
-				<button onclick="PostToBc('Buchen')">Buchen</button>
+				<button onclick="PostToBc('PostButton')">Buchen</button>
 			</div>
 			<div class="columnbuttons">
-				<button onclick="PostToBcDemo('Arbeitsgang1')">Arbeitsgang überspringen</button>
+				<button onclick="PostToBc('FinishOperationButton')">Arbeitsgang überspringen</button>
 			</div>
 			<div class="columnbuttons">
-				<button onclick="PostToBc('Arbeitsgang2')">Arbeitsgang beenden</button>
+				<button onclick="PostToBc('SkipOperationButton')">Arbeitsgang beenden</button>
 			</div>
 			<div class="columnbuttons">
-				<button onclick="PostToBc('Benutzer')">Benutzer wechseln</button>
+				<button onclick="PostToBc('ChangeUserButton')">Benutzer wechseln</button>
 			</div> 
 			<div class="columnbuttons">
-				<button onclick="PostToBc('Maschine')">Maschine wechseln</button>
+				<button onclick="PostToBc('ChangeMachineButton')">Maschine wechseln</button>
 			</div>
 
 	</form>

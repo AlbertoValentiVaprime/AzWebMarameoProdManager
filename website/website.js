@@ -2,22 +2,23 @@
 function PostToBc(parameter) {
 
     try {
-        var user = '';
-        var prodOrderNo = '';
-        var operationNo = '';
-        var machineNo = document.getElementById("fanr").value;
-        var description = '';
-        var output = '';
-        var action = '';
-        var status = '';
-        var machineType = '';
+        
+        var user = document.getElementById("UserValue").value;
+        var prodOrderNo = document.getElementById("ProductionOrderNo").value;
+        var operationNo = document.getElementById("OperationNo").value;
+        var machineNo = document.getElementById("MachineNo").value;
+        var description = document.getElementById("Description").value;
+        var output = document.getElementById("Output").value;
+        var action = document.getElementById("Action").value;
+        var status = document.getElementById("Status").value;
+        var machineType = document.getElementById("MachineType").value;
         var finish = '';
-        var processingTime = '';
-        var setupTime = '';
-        var idleTime = '';
-        var idleCode = '';
-        var finishedQuantity = '';
-        var scrapQuantity = '';
+        var processingTime = document.getElementById("ProcessingTime").value;
+        var setupTime =  document.getElementById("SetupTime").value;
+        var idleTime = document.getElementById("IdleTime").value;
+        var idleCode = document.getElementById("IdleCode").value;;
+        var finishedQuantity = document.getElementById("FinishedQuantity").value;
+        var scrapQuantity = document.getElementById("ScrapQunatity").value;
 
         var workCenterCode = '';
         var workCenterGroupCode = '';
@@ -37,7 +38,7 @@ function PostToBc(parameter) {
         var finishButtonCommand = '';
 
         var requiredActionType = parameter;
-        var selectedInput = '';
+        var selectedInput = document.getElementById("Input").value;;
 
         console.log(machineNo);
 
