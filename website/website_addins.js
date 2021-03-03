@@ -22,7 +22,6 @@ class AddIns {
         this.RequiredActionType = 0;
         this.SelectedInput = '';
 
-
         this.WorkCenterCode = '';
         this.WorkCenterGroupCode = '';
         this.SeperatorCode = '';

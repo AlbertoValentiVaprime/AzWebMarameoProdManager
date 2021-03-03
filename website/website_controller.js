@@ -73,7 +73,7 @@ function Load(e) {
 
     try {
         document.getElementById("UserValue").ondblclick = UserValue_MouseDown;
-        document.getElementById("MouseDoubleClick").ondblclick = ProductionOrderNo_MouseDown;
+        document.getElementById("ProductionOrderNo").ondblclick = ProductionOrderNo_MouseDown;
         document.getElementById("OperationNo").ondblclick = OperationNo_MouseDown;
         document.getElementById("MachineType").ondblclick = MachineType_SelectionChanged;
         document.getElementById("MachineNo").onmousedown = MachineNo_MouseDown;
@@ -114,7 +114,7 @@ function IdleCode_MouseDown() {
 function StartProcessButton_Click() {
     if (document.getElementById("StartProcessButton").IsEnabled) {
         document.getElementById("Input").Text = DataContextAddIns.StartProcessingCommand;
-        //transmitInput();
+        transmitInput();
     }
 }
 function StartSetupButton_Click() {
@@ -142,13 +142,12 @@ function OutPutButton_Click() {
 function FinishOperationButton_Click() {
 }
 
-function transmitInput()
-        {
-            addIn.RaiseControlAddInEvent(0, ui.Input.Text);//0 Text entered in Input
-            document.getElementById("Input").Text = "";
-            //ui.Input.Focus();
-            addIn.SelectedInput = "";
-        }
+function transmitInput() {
+    addIn.RaiseControlAddInEvent(0, ui.Input.Text);//0 Text entered in Input
+    document.getElementById("Input").Text = "";
+    //ui.Input.Focus();
+    addIn.SelectedInput = "";
+}
 
 /*
 
