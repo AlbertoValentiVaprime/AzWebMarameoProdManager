@@ -22,8 +22,20 @@ function PostToBcDemo(parameter) {
         CallJavaScript(parameter);
         return true;
     } catch (err) {
-        alert('Error: ' + parameter + ' -  ' + err);
+        alert('PostToBcDemo Error: ' + parameter + ' -  ' + err);
         console.log(err);
     }
 }
+
+function PostRaiseControlAddInEvent(index,msg) {
+
+    try {
+        RaiseControlAddInEvent(index,msg);
+        return true;
+    } catch (err) {
+        alert('PostRaiseControlAddInEvent Error: ' + parameter + ' -  ' + err);
+        console.log(err);
+    }
+}
+
 

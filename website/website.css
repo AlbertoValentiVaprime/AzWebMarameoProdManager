@@ -181,14 +181,10 @@ button:hover {
   box-shadow: none;
 }
 
-.inputBrushBlue
-{
-  border: #A4B8F3;
-  border-width: 2px;
+.inputSelected {
+  background-color: yellow;
 }
 
-.inputBrushGray
-{
-  border: #ABADB3;
-  border-width: 1px;
+.inputUnselected {
+  background-color: white;
 }

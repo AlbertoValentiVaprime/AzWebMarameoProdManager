@@ -29,6 +29,7 @@ namespace com.controladdin.businesscentral
             message.AppendLine("    <script language='javascript'>");
             message.AppendLine(ComposeJavaScript("../website/website_viewmodel.js"));
             message.AppendLine(ComposeJavaScript("../website/website_controller.js"));
+            message.AppendLine(ComposeJavaScript("../website/website_addins.js"));
             message.AppendLine(ComposeJavaScript("../website/website.js"));
             message.AppendLine("    </script>");
             message.AppendLine("    <style>");
