@@ -7,11 +7,10 @@ function PostToBc(parameter) {
         var json = viewModel.serialize().toString();
 
         Controller(viewModel);
-        if (CallJavaScript != null)
-            CallJavaScript(json);
+        CallJavaScript(json);
         //console.log(json);
     } catch (err) {
-        alert('Error: ' + parameter + ' -  ' + err);
+        alert('PostToBc error: ' + parameter + ' -  ' + err);
         console.log(err);
     }
 }

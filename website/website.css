@@ -183,12 +183,12 @@ button:hover {
 
 .inputBrushBlue
 {
-  border-color: #A4B8F3;
+  border: #A4B8F3;
   border-width: 2px;
 }
 
 .inputBrushGray
 {
-  border-color: #ABADB3;
+  border: #ABADB3;
   border-width: 1px;
 }

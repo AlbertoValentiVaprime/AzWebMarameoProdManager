@@ -2,91 +2,62 @@ function Controller(viewModel) {
 
     try {
 
-        if (viewModel.RequiredActionType == ActionType.UsernameInput)
-            document.getElementById("UserValue").className = ".inputBrushBlue";
+        if (viewModel.RequiredActionType == "ActionType.UsernameInput")
+            document.getElementById("UserValue").className = "inputBrushBlue";
         else
-            document.getElementById("UserValue").className = ".inputBrushGray";
+            document.getElementById("UserValue").className = "inputBrushGray";
 
-        /*if (viewModel.RequiredActionType == ActionType.UsernameInput)
-    {
-        ui.UserValue.BorderBrush = BrushBlue;
-        ui.UserValue.BorderThickness = new Thickness(2);
-    }
-    else
-    {
-        ui.UserValue.BorderBrush = BrushGray;
-        ui.UserValue.BorderThickness = new Thickness(1);
-    }
+        if (viewModel.RequiredActionType == "ActionType.MachineTypeInput") {
+            document.getElementById("MachineType").className = "inputBrushBlue";
+            document.getElementById("MachineNo").className = "inputBrushBlue";
+        }
+        else {
+            document.getElementById("MachineType").className = "inputBrushGray";
+            document.getElementById("MachineNo").className = "inputBrushGray";
+        }
 
-    if (viewModel.RequiredActionType == ActionType.MachineTypeInput)
-    {
-        ui.MachineType.BorderBrush = BrushBlue;
-        ui.MachineType.BorderThickness = new Thickness(2);
-        ui.MachineNo.BorderBrush = BrushBlue;
-        ui.MachineNo.BorderThickness = new Thickness(2);
-    }
-    else
-    {
-        ui.MachineType.BorderBrush = BrushGray;
-        ui.MachineType.BorderThickness = new Thickness(1);
-        ui.MachineNo.BorderBrush = BrushGray;
-        ui.MachineNo.BorderThickness = new Thickness(1);
-    }
+        if (viewModel.RequiredActionType == "ActionType.ProdOrderNoInput")
+            document.getElementById("ProductionOrderNo").className = "inputBrushBlue";
+        else
+            document.getElementById("ProductionOrderNo").className = "inputBrushGray";
 
-    if (viewModel.RequiredActionType == ActionType.ProdOrderNoInput)
-    {
-        ui.ProductionOrderNo.BorderBrush = BrushBlue;
-        ui.ProductionOrderNo.BorderThickness = new Thickness(2);
-    }
-    else
-    {
-        ui.ProductionOrderNo.BorderBrush = BrushGray;
-        ui.ProductionOrderNo.BorderThickness = new Thickness(1);
-    }
+        if (viewModel.RequiredActionType == "ActionType.ProdOrderAndOperationNoInput") {
+            document.getElementById("ProductionOrderNo").className = "inputBrushBlue";
+            document.getElementById("OperationNo").className = "inputBrushBlue";
+        }
+        else {
+            document.getElementById("ProductionOrderNo").className = "inputBrushGray";
+            document.getElementById("OperationNo").className = "inputBrushGray";
+        }
 
-    if (viewModel.RequiredActionType == ActionType.ProdOrderAndOperationNoInput)
-    {
-        ui.ProductionOrderNo.BorderBrush = BrushBlue;
-        ui.ProductionOrderNo.BorderThickness = new Thickness(2);
-        ui.OperationNo.BorderBrush = BrushBlue;
-        ui.OperationNo.BorderThickness = new Thickness(2);
-    }
-    else
-    {
-        ui.ProductionOrderNo.BorderBrush = BrushGray;
-        ui.ProductionOrderNo.BorderThickness = new Thickness(1);
-        ui.OperationNo.BorderBrush = BrushGray;
-        ui.OperationNo.BorderThickness = new Thickness(1);
-    }
 
-    if (viewModel.RequiredActionType == ActionType.StandstillInput)
-    {
-        ui.IdleCode.BorderBrush = BrushBlue;
-        ui.IdleCode.BorderThickness = new Thickness(2);
-    }
-    else
-    {
-        ui.IdleCode.BorderBrush = BrushGray;
-        ui.IdleCode.BorderThickness = new Thickness(1);
-    }
+        if (viewModel.RequiredActionType == "ActionType.StandstillInput")
+            document.getElementById("IdleCode").className = "inputBrushBlue";
+        else
+            document.getElementById("IdleCode").className = "inputBrushGray";
 
-    ui.MachineType.IsEnabled = (viewModel.RequiredActionType == ActionType.MachineTypeInput);
-    ui.StartProcessButton.IsEnabled = ((viewModel.RequiredActionType == ActionType.WaitingInput) || (viewModel.RequiredActionType == ActionType.SettingInput) || (viewModel.RequiredActionType == ActionType.StandstillInput));
-    ui.StartSetupButton.IsEnabled = ((viewModel.RequiredActionType == ActionType.WaitingInput) || (viewModel.RequiredActionType == ActionType.ProgressInput) || (viewModel.RequiredActionType == ActionType.StandstillInput));
-    ui.StartIdleButton.IsEnabled = ((viewModel.RequiredActionType == ActionType.WaitingInput) || (viewModel.RequiredActionType == ActionType.SettingInput) || (viewModel.RequiredActionType == ActionType.ProgressInput));
-    ui.EndProcessButton.IsEnabled = (viewModel.RequiredActionType == ActionType.ProgressInput);
-    ui.EndSetupButton.IsEnabled = (viewModel.RequiredActionType == ActionType.SettingInput);
-    ui.EndIdleButton.IsEnabled = (viewModel.RequiredActionType == ActionType.StandstillInput);
-    ui.PostButton.IsEnabled = (viewModel.RequiredActionType == ActionType.WaitingInput);
-    ui.SkipOperationButton.IsEnabled = (viewModel.RequiredActionType == ActionType.WaitingInput);
-    ui.FinishOperationButton.IsEnabled = (viewModel.RequiredActionType == ActionType.WaitingInput);
-    ui.ChangeUserButton.IsEnabled = true;
-    ui.ChangeMachineButton.IsEnabled = true;
-    ui.ScrapButton.IsEnabled = (viewModel.RequiredActionType == ActionType.WaitingInput);
-    ui.OutPutButton.IsEnabled = (viewModel.RequiredActionType == ActionType.WaitingInput);
-    ui.Input.Focus();*/
+        document.getElementById("MachineType").IsEnabled = (viewModel.RequiredActionType == "ActionType.MachineTypeInput");
+        document.getElementById("StartProcessButton").IsEnabled = ((viewModel.RequiredActionType == "ActionType.WaitingInput")
+            || (viewModel.RequiredActionType == "ActionType.SettingInput") || (viewModel.RequiredActionType == "ActionType.StandstillInput"));
+        document.getElementById("StartSetupButton").IsEnabled = ((viewModel.RequiredActionType == "ActionType.WaitingInput")
+            || (viewModel.RequiredActionType == "ActionType.ProgressInput")
+            || (viewModel.RequiredActionType == "ActionType.StandstillInput"));
+        document.getElementById("StartIdleButton").IsEnabled = ((viewModel.RequiredActionType == "ActionType.WaitingInput")
+            || (viewModel.RequiredActionType == "ActionType.SettingInput")
+            || (viewModel.RequiredActionType == "ActionType.ProgressInput"));
+        document.getElementById("EndProcessButton").IsEnabled = (viewModel.RequiredActionType == "ActionType.ProgressInput");
+        document.getElementById("EndSetupButton").IsEnabled = (viewModel.RequiredActionType == "ActionType.SettingInput");
+        document.getElementById("EndIdleButton").IsEnabled = (viewModel.RequiredActionType == "ActionType.StandstillInput");
+        document.getElementById("PostButton").IsEnabled = (viewModel.RequiredActionType == "ActionType.WaitingInput");
+        document.getElementById("SkipOperationButton").IsEnabled = (viewModel.RequiredActionType == "ActionType.WaitingInput");
+        document.getElementById("FinishOperationButton").IsEnabled = (viewModel.RequiredActionType == "ActionType.WaitingInput");
+        document.getElementById("ChangeUserButton").IsEnabled = true;
+        document.getElementById("ChangeMachineButton").IsEnabled = true;
+        document.getElementById("ScrapButton").IsEnabled = (viewModel.RequiredActionType == "ActionType.WaitingInput");
+        document.getElementById("OutPutButton").IsEnabled = (viewModel.RequiredActionType == "ActionType.WaitingInput");
+        document.getElementById("Input").Focus();
     } catch (err) {
-        alert('Error: ' + parameter + ' -  ' + err);
+        alert('Controller error: ' + parameter + ' -  ' + err);
         console.log(err);
     }
 }
