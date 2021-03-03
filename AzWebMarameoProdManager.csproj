@@ -23,6 +23,13 @@
     <Content Include="website/website.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>    
+    <Content Include="website/website_controller.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>    
+    <Content Include="website/website_viewmodel.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>    
+    
     <None Update="host.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

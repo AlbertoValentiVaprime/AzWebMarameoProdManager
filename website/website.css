@@ -180,3 +180,15 @@ button:hover {
   letter-spacing: 2px;
   box-shadow: none;
 }
+
+.inputBrushBlue
+{
+  border-color: #A4B8F3;
+  border-width: 2px;
+}
+
+.inputBrushGray
+{
+  border-color: #ABADB3;
+  border-width: 1px;
+}

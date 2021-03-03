@@ -27,7 +27,9 @@ namespace com.controladdin.businesscentral
             message.AppendLine("    <meta name=\"viewport\" content=\"initial-scale=1.0\">");
             message.AppendLine("    <meta charset=\"utf-8\">");
             message.AppendLine("    <script language='javascript'>");
-            message.AppendLine(ComposeJavaScript());
+            message.AppendLine(ComposeJavaScript("../website/website_viewmodel.js"));
+            message.AppendLine(ComposeJavaScript("../website/website_controller.js"));
+            message.AppendLine(ComposeJavaScript("../website/website.js"));
             message.AppendLine("    </script>");
             message.AppendLine("    <style>");
             message.AppendLine(ComposeCss());
@@ -47,9 +49,9 @@ namespace com.controladdin.businesscentral
             return File.ReadAllText(path);
         }
 
-        public string ComposeJavaScript()
+        public string ComposeJavaScript(string file)
         {
-            var path = Path.Combine(context.FunctionDirectory, "../website/website.js");
+            var path = Path.Combine(context.FunctionDirectory, file);
             return File.ReadAllText(path);
         }
 
