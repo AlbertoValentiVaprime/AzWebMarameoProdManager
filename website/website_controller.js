@@ -80,19 +80,19 @@ function Load(e) {
         document.getElementById("MachineType").ondblclick = MachineType_SelectionChanged;
         document.getElementById("MachineNo").onmousedown = MachineNo_MouseDown;
         document.getElementById("IdleCode").onmousedown = IdleCode_MouseDown;
-        document.getElementById("StartProcessButton").click = StartProcessButton_Click;
-        document.getElementById("StartSetupButton").click = StartSetupButton_Click;
-        document.getElementById("StartIdleButton").click = StartIdleButton_Click;
-        document.getElementById("EndProcessButton").click = EndProcessButton;
-        document.getElementById("EndSetupButton").click = EndSetupButton;
-        document.getElementById("EndIdleButton").click = EndIdleButton;
-        document.getElementById("PostButton").click = PostButton;
-        document.getElementById("SkipOperationButton").click = SkipOperationButton_Click;
-        document.getElementById("ChangeUserButton").click = ChangeUserButton_Click;
-        document.getElementById("ChangeMachineButton").click = ChangeMachineButton_Click;
-        document.getElementById("ScrapButton").click = ScrapButton_Click;
-        document.getElementById("OutPutButton").click = OutPutButton_Click;
-        document.getElementById("FinishOperationButton").click = FinishOperationButton_Click;
+        //document.getElementById("StartProcessButton").onclick = StartProcessButton_Click;
+        document.getElementById("StartSetupButton").onclick = StartSetupButton_Click;
+        document.getElementById("StartIdleButton").onclick = StartIdleButton_Click;
+        document.getElementById("EndProcessButton").onclick = EndProcessButton;
+        document.getElementById("EndSetupButton").onclick = EndSetupButton;
+        document.getElementById("EndIdleButton").onclick = EndIdleButton;
+        document.getElementById("PostButton").onclick = PostButton;
+        document.getElementById("SkipOperationButton").onclick = SkipOperationButton_Click;
+        document.getElementById("ChangeUserButton").onclick = ChangeUserButton_Click;
+        document.getElementById("ChangeMachineButton").onclick = ChangeMachineButton_Click;
+        document.getElementById("ScrapButton").onclick = ScrapButton_Click;
+        document.getElementById("OutPutButton").onclick = OutPutButton_Click;
+        document.getElementById("FinishOperationButton").onclick = FinishOperationButton_Click;
     } catch (err) {
         alert('Controller error: ' + err);
         console.log(err);
@@ -114,10 +114,16 @@ function MachineNo_MouseDown() {
 function IdleCode_MouseDown() {
 }
 function StartProcessButton_Click() {
-    if (document.getElementById("StartProcessButton").IsEnabled) {
+    try {
+        //if (document.getElementById("StartProcessButton").IsEnabled) {
         document.getElementById("Input").Text = DataContextAddIns.StartProcessingCommand;
         transmitInput();
+        //}
+    } catch (err) {
+        alert('StartProcessButton_Click error: ' + err);
+        console.log(err);
     }
+
 }
 function StartSetupButton_Click() {
 }
@@ -145,10 +151,15 @@ function FinishOperationButton_Click() {
 }
 
 function transmitInput() {
-    RaiseControlAddInEvent(0, ui.Input.Text);//0 Text entered in Input
-    document.getElementById("Input").Text = "";
-    //ui.Input.Focus();
-    addIn.SelectedInput = "";
+    try {
+        PostRaiseControlAddInEvent(0, document.getElementById("Input").Text);//0 Text entered in Input
+        document.getElementById("Input").Text = '';
+        //ui.Input.Focus();
+        DataContextAddIns.SelectedInput = '';
+    } catch (err) {
+        alert('transmitInput error: ' + err);
+        console.log(err);
+    }
 }
 
 /*

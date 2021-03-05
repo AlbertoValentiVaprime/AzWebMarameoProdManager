@@ -34,7 +34,7 @@ function PostRaiseControlAddInEvent(index, msg) {
         RaiseControlAddInEvent(index, msg);
         return true;
     } catch (err) {
-        alert('PostRaiseControlAddInEvent Error: ' + parameter + ' -  ' + err);
+        alert('PostRaiseControlAddInEvent Error: ' + msg + ' -  ' + err);
         console.log(err);
     }
 }
