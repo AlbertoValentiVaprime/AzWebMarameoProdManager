@@ -1,4 +1,3 @@
-
 function GetViewModel(parameter) {
 
     try {

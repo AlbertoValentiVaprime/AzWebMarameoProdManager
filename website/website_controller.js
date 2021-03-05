@@ -1,5 +1,3 @@
-
-
 function Controller(viewModel) {
 
     try {
@@ -67,13 +65,11 @@ function Controller(viewModel) {
 }
 var DataContextAddIns;
 
-window.onload = function (e) {
-    DataContextAddIns = new AddIns();
-    Load(e);
-}
-function Load(e) {
+function InitController() {
 
     try {
+        alert('InitController');
+        DataContextAddIns = new AddIns();
         document.getElementById("UserValue").ondblclick = UserValue_MouseDown;
         document.getElementById("ProductionOrderNo").ondblclick = ProductionOrderNo_MouseDown;
         document.getElementById("OperationNo").ondblclick = OperationNo_MouseDown;

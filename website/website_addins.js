@@ -1,4 +1,3 @@
-
 class AddIns {
     constructor() {
 
@@ -39,6 +38,7 @@ class AddIns {
         this.ScrapButtonCommand = '';
         this.FinishOperationCommand = '';
     }
+
     serialize() {
         return JSON.stringify(this);
     }
