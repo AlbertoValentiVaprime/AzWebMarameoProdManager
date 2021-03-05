@@ -90,7 +90,7 @@ function InitController() {
         document.getElementById("OutPutButton").onclick = OutPutButton_Click;
         document.getElementById("FinishOperationButton").onclick = FinishOperationButton_Click;
     } catch (err) {
-        alert('Controller error: ' + err);
+        alert('InitController error: ' + err);
         console.log(err);
     }
 }
@@ -112,7 +112,7 @@ function IdleCode_MouseDown() {
 function StartProcessButton_Click() {
     try {
         //if (document.getElementById("StartProcessButton").IsEnabled) {
-        document.getElementById("Input").Text = DataContextAddIns.StartProcessingCommand;
+        //document.getElementById("Input").Text = DataContextAddIns.StartProcessingCommand;
         transmitInput();
         //}
     } catch (err) {
@@ -151,7 +151,7 @@ function transmitInput() {
         PostRaiseControlAddInEvent(0, document.getElementById("Input").Text);//0 Text entered in Input
         document.getElementById("Input").Text = '';
         //ui.Input.Focus();
-        DataContextAddIns.SelectedInput = '';
+        //DataContextAddIns.SelectedInput = '';
     } catch (err) {
         alert('transmitInput error: ' + err);
         console.log(err);
