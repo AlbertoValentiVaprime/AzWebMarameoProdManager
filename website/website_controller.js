@@ -70,25 +70,26 @@ function InitController() {
     try {
         alert('InitController');
         DataContextAddIns = new AddIns();
-        document.getElementById("UserValue").ondblclick = UserValue_MouseDown;
+        /*document.getElementById("UserValue").ondblclick = UserValue_MouseDown;
         document.getElementById("ProductionOrderNo").ondblclick = ProductionOrderNo_MouseDown;
         document.getElementById("OperationNo").ondblclick = OperationNo_MouseDown;
         document.getElementById("MachineType").ondblclick = MachineType_SelectionChanged;
         document.getElementById("MachineNo").onmousedown = MachineNo_MouseDown;
         document.getElementById("IdleCode").onmousedown = IdleCode_MouseDown;
-        //document.getElementById("StartProcessButton").onclick = StartProcessButton_Click;
+        document.getElementById("StartProcessButton").onclick = StartProcessButton_Click;
         document.getElementById("StartSetupButton").onclick = StartSetupButton_Click;
         document.getElementById("StartIdleButton").onclick = StartIdleButton_Click;
-        document.getElementById("EndProcessButton").onclick = EndProcessButton;
-        document.getElementById("EndSetupButton").onclick = EndSetupButton;
-        document.getElementById("EndIdleButton").onclick = EndIdleButton;
-        document.getElementById("PostButton").onclick = PostButton;
+        document.getElementById("EndProcessButton").onclick = EndProcessButton_Click;
+        document.getElementById("EndSetupButton").onclick = EndSetupButton_Click;
+        document.getElementById("EndIdleButton").onclick = EndIdleButton_Click;
+        document.getElementById("PostButton").onclick = PostButton_Click;
         document.getElementById("SkipOperationButton").onclick = SkipOperationButton_Click;
         document.getElementById("ChangeUserButton").onclick = ChangeUserButton_Click;
         document.getElementById("ChangeMachineButton").onclick = ChangeMachineButton_Click;
         document.getElementById("ScrapButton").onclick = ScrapButton_Click;
         document.getElementById("OutPutButton").onclick = OutPutButton_Click;
         document.getElementById("FinishOperationButton").onclick = FinishOperationButton_Click;
+        */
     } catch (err) {
         alert('InitController error: ' + err);
         console.log(err);
@@ -122,28 +123,150 @@ function StartProcessButton_Click() {
 
 }
 function StartSetupButton_Click() {
+    try {
+        //if (ui.StartSetupButton.IsEnabled)
+        //{
+        //ui.Input.Text = ((ViewModel)ui.DataContext).StartSetupCommand;
+        transmitInput();
+        //}
+    } catch (err) {
+        alert('StartSetupButton_Click error: ' + err);
+        console.log(err);
+    }
 }
 function StartIdleButton_Click() {
+    try {
+        //if (ui.StartIdleButton.IsEnabled)
+        //{
+        //    ui.Input.Text = ((ViewModel)ui.DataContext).StartIdleCommand;
+        transmitInput();
+        //}
+    } catch (err) {
+        alert('StartIdleButton_Click error: ' + err);
+        console.log(err);
+    }
 }
-function EndProcessButton() {
+function EndProcessButton_Click() {
+    try {
+        //if (ui.EndProcessButton.IsEnabled)
+        //{
+        //    ui.Input.Text = ((ViewModel)ui.DataContext).EndProcessingCommand;
+        transmitInput();
+        //}
+    } catch (err) {
+        alert('EndProcessButton_Click error: ' + err);
+        console.log(err);
+    }
 }
-function EndSetupButton() {
+
+function EndSetupButton_Click() {
+    try {
+        //if (ui.EndSetupButton.IsEnabled)
+        //{
+        //ui.Input.Text = ((ViewModel)ui.DataContext).EndSetupCommand;
+        transmitInput();
+        //}
+    } catch (err) {
+        alert('EndSetupButton_Click error: ' + err);
+        console.log(err);
+    }
 }
-function EndIdleButton() {
+
+function EndIdleButton_Click() {
+    try {
+        //if (ui.EndIdleButton.IsEnabled)
+        //{
+        //ui.Input.Text = ((ViewModel)ui.DataContext).EndIdleCommand;
+        transmitInput();
+        //}
+    } catch (err) {
+        alert('EndIdleButton_Click error: ' + err);
+        console.log(err);
+    }
 }
-function PostButton() {
+function PostButton_Click() {
+    try {
+        //if (ui.PostButton.IsEnabled)
+        //{
+        //    ui.Input.Text = ((ViewModel)ui.DataContext).PostCommand;
+        transmitInput();
+        //}
+    } catch (err) {
+        alert('PostButton_Click error: ' + err);
+        console.log(err);
+    }
 }
 function SkipOperationButton_Click() {
+    try {
+        //if (ui.SkipOperationButton.IsEnabled)
+        //{
+        //    ui.Input.Text = ((ViewModel)ui.DataContext).SkipOperationCommand;
+        transmitInput();
+        //}
+    } catch (err) {
+        alert('SkipOperationButton_Click error: ' + err);
+        console.log(err);
+    }
 }
 function ChangeUserButton_Click() {
+    try {
+        //if (ui.ChangeUserButton.IsEnabled)
+        //{
+        //    ui.Input.Text = ((ViewModel)ui.DataContext).ChangeUserCommand;
+        transmitInput();
+        //}
+    } catch (err) {
+        alert('ChangeUserButton_Click error: ' + err);
+        console.log(err);
+    }
 }
 function ChangeMachineButton_Click() {
+    try {
+        //if (ui.ChangeMachineButton.IsEnabled)
+        //{
+        //    ui.Input.Text = ((ViewModel)ui.DataContext).ChangeMachineCommand;
+        transmitInput();
+        //}
+    } catch (err) {
+        alert('ChangeMachineButton_Click error: ' + err);
+        console.log(err);
+    }
 }
 function ScrapButton_Click() {
+    try {
+        //if (ui.ScrapButton.IsEnabled)
+        //{
+        //    ui.Input.Text = ((ViewModel)ui.DataContext).ScrapButtonCommand;
+        transmitInput();
+        //}
+    } catch (err) {
+        alert('ScrapButton_Click error: ' + err);
+        console.log(err);
+    }
 }
 function OutPutButton_Click() {
+    try {
+        //if (ui.OutPutButton.IsEnabled)
+        //{
+        //    ui.Input.Text = ((ViewModel)ui.DataContext).OutPutButtonCommand;
+        transmitInput();
+        //}
+    } catch (err) {
+        alert('OutPutButton_Click error: ' + err);
+        console.log(err);
+    }
 }
 function FinishOperationButton_Click() {
+    try {
+        //if (ui.FinishOperationButton.IsEnabled)
+        //{
+        //    ui.Input.Text = ((ViewModel)ui.DataContext).FinishButtonCommand;
+        transmitInput();
+        //}
+    } catch (err) {
+        alert('FinishOperationButton_Click error: ' + err);
+        console.log(err);
+    }
 }
 
 function transmitInput() {
@@ -157,114 +280,4 @@ function transmitInput() {
         console.log(err);
     }
 }
-
-/*
-
-        void StartSetupButton_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
-            if (ui.StartSetupButton.IsEnabled)
-            {
-                ui.Input.Text = ((ViewModel)ui.DataContext).StartSetupCommand;
-                transmitInput();
-            }
-        }
-
-        void StartIdleButton_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
-            if (ui.StartIdleButton.IsEnabled)
-            {
-                ui.Input.Text = ((ViewModel)ui.DataContext).StartIdleCommand;
-                transmitInput();
-            }
-        }
-
-        void EndProcessButton_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
-            if (ui.EndProcessButton.IsEnabled)
-            {
-                ui.Input.Text = ((ViewModel)ui.DataContext).EndProcessingCommand;
-                transmitInput();
-            }
-        }
-
-        void EndSetupButton_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
-            if (ui.EndSetupButton.IsEnabled)
-            {
-                ui.Input.Text = ((ViewModel)ui.DataContext).EndSetupCommand;
-                transmitInput();
-            }
-        }
-
-        void EndIdleButton_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
-            if (ui.EndIdleButton.IsEnabled)
-            {
-                ui.Input.Text = ((ViewModel)ui.DataContext).EndIdleCommand;
-                transmitInput();
-            }
-        }
-
-        void PostButton_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
-            if (ui.PostButton.IsEnabled)
-            {
-                ui.Input.Text = ((ViewModel)ui.DataContext).PostCommand;
-                transmitInput();
-            }
-        }
-
-        void SkipOperationButton_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
-            if (ui.SkipOperationButton.IsEnabled)
-            {
-                ui.Input.Text = ((ViewModel)ui.DataContext).SkipOperationCommand;
-                transmitInput();
-            }
-        }
-
-        void ChangeUserButton_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
-            if (ui.ChangeUserButton.IsEnabled)
-            {
-                ui.Input.Text = ((ViewModel)ui.DataContext).ChangeUserCommand;
-                transmitInput();
-            }
-        }
-
-        void ChangeMachineButton_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
-            if (ui.ChangeMachineButton.IsEnabled)
-            {
-                ui.Input.Text = ((ViewModel)ui.DataContext).ChangeMachineCommand;
-                transmitInput();
-            }
-        }
-
-        void OutPutButton_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
-            if (ui.OutPutButton.IsEnabled)
-            {
-                ui.Input.Text = ((ViewModel)ui.DataContext).OutPutButtonCommand;
-                transmitInput();
-            }
-        }
-
-        void ScrapButton_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
-            if (ui.ScrapButton.IsEnabled)
-            {
-                ui.Input.Text = ((ViewModel)ui.DataContext).ScrapButtonCommand;
-                transmitInput();
-            }
-        }
-
-        void FinishOperationButton_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
-            if (ui.FinishOperationButton.IsEnabled)
-            {
-                ui.Input.Text = ((ViewModel)ui.DataContext).FinishButtonCommand;
-                transmitInput();
-            }
-        }*/
 
