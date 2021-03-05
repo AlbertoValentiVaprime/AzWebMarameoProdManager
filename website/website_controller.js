@@ -1,3 +1,5 @@
+
+
 function Controller(viewModel) {
 
     try {
@@ -143,7 +145,7 @@ function FinishOperationButton_Click() {
 }
 
 function transmitInput() {
-    addIn.RaiseControlAddInEvent(0, ui.Input.Text);//0 Text entered in Input
+    RaiseControlAddInEvent(0, ui.Input.Text);//0 Text entered in Input
     document.getElementById("Input").Text = "";
     //ui.Input.Focus();
     addIn.SelectedInput = "";

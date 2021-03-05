@@ -38,8 +38,6 @@ class AddIns {
         this.OutPutButtonCommand = '';
         this.ScrapButtonCommand = '';
         this.FinishOperationCommand = '';
-        
-
     }
     serialize() {
         return JSON.stringify(this);
@@ -51,5 +49,8 @@ class AddIns {
         Object.assign(instance, serializedObject);
         return instance;
     }
+
+    
+    
 }
 
