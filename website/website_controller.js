@@ -5,12 +5,12 @@ function Controller(viewModel) {
         var inputSelected = "inputSelected";
         var inputUnselected = "inputUnselected";
 
-        if (viewModel.RequiredActionType == "ActionType.UsernameInput")
+        if (viewModel.RequiredActionType == ActionType_UsernameInput)
             document.getElementById("UserValue").className = inputSelected;
         else
             document.getElementById("UserValue").className = inputUnselected;
 
-        if (viewModel.RequiredActionType == "ActionType.MachineTypeInput") {
+        if (viewModel.RequiredActionType == ActionType_MachineTypeInput) {
             document.getElementById("MachineType").className = inputSelected;
             document.getElementById("MachineNo").className = inputSelected;
         }
@@ -19,12 +19,12 @@ function Controller(viewModel) {
             document.getElementById("MachineNo").className = inputUnselected;
         }
 
-        if (viewModel.RequiredActionType == "ActionType.ProdOrderNoInput")
+        if (viewModel.RequiredActionType == ActionType_ProdOrderNoInput)
             document.getElementById("ProductionOrderNo").className = inputSelected;
         else
             document.getElementById("ProductionOrderNo").className = inputUnselected;
 
-        if (viewModel.RequiredActionType == "ActionType.ProdOrderAndOperationNoInput") {
+        if (viewModel.RequiredActionType == ActionType_ProdOrderAndOperationNoInput) {
             document.getElementById("ProductionOrderNo").className = inputSelected;
             document.getElementById("OperationNo").className = inputSelected;
         }
@@ -33,40 +33,45 @@ function Controller(viewModel) {
             document.getElementById("OperationNo").className = inputUnselected;
         }
 
-        if (viewModel.RequiredActionType == "ActionType.StandstillInput")
+        if (viewModel.RequiredActionType == ActionType_StandstillInput)
             document.getElementById("IdleCode").className = inputSelected;
         else
             document.getElementById("IdleCode").className = inputUnselected;
 
-        document.getElementById("MachineType").disabled = !(viewModel.RequiredActionType == "ActionType.MachineTypeInput");
+        document.getElementById("MachineType").disabled = !(viewModel.RequiredActionType == ActionType_MachineTypeInput);
         document.getElementById("StartProcessButton").disabled =
-            !((viewModel.RequiredActionType == "ActionType.WaitingInput")
-                || (viewModel.RequiredActionType == "ActionType.SettingInput") || (viewModel.RequiredActionType == "ActionType.StandstillInput"));
+            !((viewModel.RequiredActionType == ActionType_WaitingInput)
+                || (viewModel.RequiredActionType == ActionType_SettingInput) || (viewModel.RequiredActionType == ActionType_StandstillInput));
         document.getElementById("StartSetupButton").disabled =
-            !((viewModel.RequiredActionType == "ActionType.WaitingInput")
-                || (viewModel.RequiredActionType == "ActionType.ProgressInput")
-                || (viewModel.RequiredActionType == "ActionType.StandstillInput"));
+            !((viewModel.RequiredActionType == ActionType_WaitingInput)
+                || (viewModel.RequiredActionType == ActionType_ProgressInput)
+                || (viewModel.RequiredActionType == ActionType_StandstillInput));
         document.getElementById("StartIdleButton").disabled =
-            !((viewModel.RequiredActionType == "ActionType.WaitingInput")
-                || (viewModel.RequiredActionType == "ActionType.SettingInput")
-                || (viewModel.RequiredActionType == "ActionType.ProgressInput"));
-        document.getElementById("EndProcessButton").disabled = !(viewModel.RequiredActionType == "ActionType.ProgressInput");
-        document.getElementById("EndSetupButton").disabled = !(viewModel.RequiredActionType == "ActionType.SettingInput");
-        document.getElementById("EndIdleButton").disabled = !(viewModel.RequiredActionType == "ActionType.StandstillInput");
-        document.getElementById("PostButton").disabled = !(viewModel.RequiredActionType == "ActionType.WaitingInput");
-        document.getElementById("SkipOperationButton").disabled = !(viewModel.RequiredActionType == "ActionType.WaitingInput");
-        document.getElementById("FinishOperationButton").disabled = !(viewModel.RequiredActionType == "ActionType.WaitingInput");
+            !((viewModel.RequiredActionType == ActionType_WaitingInput)
+                || (viewModel.RequiredActionType == ActionType_SettingInput)
+                || (viewModel.RequiredActionType == ActionType_ProgressInput));
+        document.getElementById("EndProcessButton").disabled = !(viewModel.RequiredActionType == ActionType_ProgressInput);
+        document.getElementById("EndSetupButton").disabled = !(viewModel.RequiredActionType == ActionType_SettingInput);
+        document.getElementById("EndIdleButton").disabled = !(viewModel.RequiredActionType == ActionType_StandstillInput);
+        document.getElementById("PostButton").disabled = !(viewModel.RequiredActionType == ActionType_WaitingInput);
+        document.getElementById("SkipOperationButton").disabled = !(viewModel.RequiredActionType == ActionType_WaitingInput);
+        document.getElementById("FinishOperationButton").disabled = !(viewModel.RequiredActionType == ActionType_WaitingInput);
         document.getElementById("ChangeUserButton").disabled = false;
         document.getElementById("ChangeMachineButton").disabled = false;
-        document.getElementById("ScrapButton").disabled = !(viewModel.RequiredActionType == "ActionType.WaitingInput");
-        document.getElementById("OutPutButton").disabled = !(viewModel.RequiredActionType == "ActionType.WaitingInput");
+        document.getElementById("ScrapButton").disabled = !(viewModel.RequiredActionType == ActionType_WaitingInput);
+        document.getElementById("OutPutButton").disabled = !(viewModel.RequiredActionType == ActionType_WaitingInput);
         //document.getElementById("Input").focus();
-        alert('StartProcessButton disabled:'+document.getElementById("StartProcessButton").disabled);
+        alert('StartProcessButton disabled:' + document.getElementById("StartProcessButton").disabled);
     } catch (err) {
         alert('Controller error: ' + err);
         console.log(err);
     }
 }
+
+window.onload = function() {
+    InitController();
+  };
+
 var DataContextAddIns;
 
 function InitController() {
@@ -98,28 +103,8 @@ function InitController() {
     }
 }
 
-function UserValue_MouseDown() {
-}
-
-function ProductionOrderNo_MouseDown() {
-}
-
-function OperationNo_MouseDown() {
-}
-
-function MachineType_SelectionChanged() {
-}
-
-function MachineNo_MouseDown() {
-}
-
-function IdleCode_MouseDown() {
-}
-
 function StartProcessButton_Click() {
     try {
-        alert('StartProcessButton_Click');
-        alert('StartProcessButton disabled:'+document.getElementById("StartProcessButton").disabled);
         if (!document.getElementById("StartProcessButton").disabled) {
             document.getElementById("Input").Text = DataContextAddIns.StartProcessingCommand;
             transmitInput();
@@ -132,11 +117,10 @@ function StartProcessButton_Click() {
 }
 function StartSetupButton_Click() {
     try {
-        //if (ui.StartSetupButton.IsEnabled)
-        //{
-        //ui.Input.Text = ((ViewModel)ui.DataContext).StartSetupCommand;
-        transmitInput();
-        //}
+        if (!document.getElementById("StartSetupButton").disabled) {
+            document.getElementById("Input").Text = DataContextAddIns.StartSetupCommand;
+            transmitInput();
+        }
     } catch (err) {
         alert('StartSetupButton_Click error: ' + err);
         console.log(err);
@@ -144,11 +128,10 @@ function StartSetupButton_Click() {
 }
 function StartIdleButton_Click() {
     try {
-        //if (ui.StartIdleButton.IsEnabled)
-        //{
-        //    ui.Input.Text = ((ViewModel)ui.DataContext).StartIdleCommand;
-        transmitInput();
-        //}
+        if (!document.getElementById("StartIdleButton").disabled) {
+            document.getElementById("Input").Text = DataContextAddIns.StartIdleCommand;
+            transmitInput();
+        }
     } catch (err) {
         alert('StartIdleButton_Click error: ' + err);
         console.log(err);
@@ -156,11 +139,10 @@ function StartIdleButton_Click() {
 }
 function EndProcessButton_Click() {
     try {
-        //if (ui.EndProcessButton.IsEnabled)
-        //{
-        //    ui.Input.Text = ((ViewModel)ui.DataContext).EndProcessingCommand;
-        transmitInput();
-        //}
+        if (!document.getElementById("EndProcessButton").disabled) {
+            document.getElementById("Input").Text = DataContextAddIns.EndProcessingCommand;
+            transmitInput();
+        }
     } catch (err) {
         alert('EndProcessButton_Click error: ' + err);
         console.log(err);
@@ -169,11 +151,10 @@ function EndProcessButton_Click() {
 
 function EndSetupButton_Click() {
     try {
-        //if (ui.EndSetupButton.IsEnabled)
-        //{
-        //ui.Input.Text = ((ViewModel)ui.DataContext).EndSetupCommand;
-        transmitInput();
-        //}
+        if (!document.getElementById("EndSetupButton").disabled) {
+            document.getElementById("Input").Text = DataContextAddIns.EndSetupCommand;
+            transmitInput();
+        }
     } catch (err) {
         alert('EndSetupButton_Click error: ' + err);
         console.log(err);
@@ -182,11 +163,10 @@ function EndSetupButton_Click() {
 
 function EndIdleButton_Click() {
     try {
-        //if (ui.EndIdleButton.IsEnabled)
-        //{
-        //ui.Input.Text = ((ViewModel)ui.DataContext).EndIdleCommand;
-        transmitInput();
-        //}
+        if (!document.getElementById("EndIdleButton").disabled) {
+            document.getElementById("Input").Text = DataContextAddIns.EndIdleCommand;
+            transmitInput();
+        }
     } catch (err) {
         alert('EndIdleButton_Click error: ' + err);
         console.log(err);
@@ -194,11 +174,10 @@ function EndIdleButton_Click() {
 }
 function PostButton_Click() {
     try {
-        //if (ui.PostButton.IsEnabled)
-        //{
-        //    ui.Input.Text = ((ViewModel)ui.DataContext).PostCommand;
-        transmitInput();
-        //}
+        if (!document.getElementById("PostButton").disabled) {
+            document.getElementById("Input").Text = DataContextAddIns.PostCommand;
+            transmitInput();
+        }
     } catch (err) {
         alert('PostButton_Click error: ' + err);
         console.log(err);
@@ -206,11 +185,10 @@ function PostButton_Click() {
 }
 function SkipOperationButton_Click() {
     try {
-        //if (ui.SkipOperationButton.IsEnabled)
-        //{
-        //    ui.Input.Text = ((ViewModel)ui.DataContext).SkipOperationCommand;
-        transmitInput();
-        //}
+        if (!document.getElementById("SkipOperationButton").disabled) {
+            document.getElementById("Input").Text = DataContextAddIns.SkipOperationCommand;
+            transmitInput();
+        }
     } catch (err) {
         alert('SkipOperationButton_Click error: ' + err);
         console.log(err);
@@ -218,11 +196,10 @@ function SkipOperationButton_Click() {
 }
 function ChangeUserButton_Click() {
     try {
-        //if (ui.ChangeUserButton.IsEnabled)
-        //{
-        //    ui.Input.Text = ((ViewModel)ui.DataContext).ChangeUserCommand;
-        transmitInput();
-        //}
+        if (!document.getElementById("ChangeUserButton").disabled) {
+            document.getElementById("Input").Text = DataContextAddIns.ChangeUserCommand;
+            transmitInput();
+        }
     } catch (err) {
         alert('ChangeUserButton_Click error: ' + err);
         console.log(err);
@@ -230,11 +207,10 @@ function ChangeUserButton_Click() {
 }
 function ChangeMachineButton_Click() {
     try {
-        //if (ui.ChangeMachineButton.IsEnabled)
-        //{
-        //    ui.Input.Text = ((ViewModel)ui.DataContext).ChangeMachineCommand;
-        transmitInput();
-        //}
+        if (!document.getElementById("ChangeMachineButton").disabled) {
+            document.getElementById("Input").Text = DataContextAddIns.ChangeMachineCommand;
+            transmitInput();
+        }
     } catch (err) {
         alert('ChangeMachineButton_Click error: ' + err);
         console.log(err);
@@ -242,11 +218,10 @@ function ChangeMachineButton_Click() {
 }
 function ScrapButton_Click() {
     try {
-        //if (ui.ScrapButton.IsEnabled)
-        //{
-        //    ui.Input.Text = ((ViewModel)ui.DataContext).ScrapButtonCommand;
-        transmitInput();
-        //}
+        if (!document.getElementById("ScrapButton").disabled) {
+            document.getElementById("Input").Text = DataContextAddIns.ScrapButtonCommand;
+            transmitInput();
+        }
     } catch (err) {
         alert('ScrapButton_Click error: ' + err);
         console.log(err);
@@ -254,11 +229,10 @@ function ScrapButton_Click() {
 }
 function OutPutButton_Click() {
     try {
-        //if (ui.OutPutButton.IsEnabled)
-        //{
-        //    ui.Input.Text = ((ViewModel)ui.DataContext).OutPutButtonCommand;
-        transmitInput();
-        //}
+        if (!document.getElementById("OutPutButton").disabled) {
+            document.getElementById("Input").Text = DataContextAddIns.OutPutButtonCommand;
+            transmitInput();
+        }
     } catch (err) {
         alert('OutPutButton_Click error: ' + err);
         console.log(err);
@@ -266,11 +240,10 @@ function OutPutButton_Click() {
 }
 function FinishOperationButton_Click() {
     try {
-        //if (ui.FinishOperationButton.IsEnabled)
-        //{
-        //    ui.Input.Text = ((ViewModel)ui.DataContext).FinishButtonCommand;
-        transmitInput();
-        //}
+        if (!document.getElementById("FinishOperationButton").disabled) {
+            document.getElementById("Input").Text = DataContextAddIns.FinishButtonCommand;
+            transmitInput();
+        }
     } catch (err) {
         alert('FinishOperationButton_Click error: ' + err);
         console.log(err);
@@ -282,19 +255,17 @@ function transmitInput() {
         PostRaiseControlAddInEvent(0, document.getElementById("Input").Text);//0 Text entered in Input
         document.getElementById("Input").Text = '';
         //ui.Input.Focus();
-        //DataContextAddIns.SelectedInput = '';
+        DataContextAddIns.SelectedInput = '';
     } catch (err) {
         alert('transmitInput error: ' + err);
         console.log(err);
     }
 }
 
-/*
 
-        #region TextBox-Events
-        void UserValue_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            if (((ViewModel)ui.DataContext).RequiredActionType == ActionType.UsernameInput)
+function UserValue_MouseDown() {
+    /*
+    if (((ViewModel)ui.DataContext).RequiredActionType == ActionType.UsernameInput)
             {
                 addIn.RaiseControlAddInEvent(2, ((int) LookupType.User).ToString());
 
@@ -304,11 +275,12 @@ function transmitInput() {
                     transmitInput();
                 }
             }
-        }
+            */
+}
 
-        void ProductionOrderNo_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            if ((((ViewModel)ui.DataContext).RequiredActionType == ActionType.ProdOrderNoInput) || (((ViewModel)ui.DataContext).RequiredActionType == ActionType.ProdOrderAndOperationNoInput))
+function ProductionOrderNo_MouseDown() {
+    /*
+ if ((((ViewModel)ui.DataContext).RequiredActionType == ActionType.ProdOrderNoInput) || (((ViewModel)ui.DataContext).RequiredActionType == ActionType.ProdOrderAndOperationNoInput))
             {
                 addIn.RaiseControlAddInEvent(2, ((int)LookupType.ProdOrder).ToString());
 
@@ -325,12 +297,12 @@ function transmitInput() {
                         transmitInput();
                     }
                 }
-            }
-        }
+            }    */
+}
 
-        void OperationNo_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            if (((ViewModel)ui.DataContext).RequiredActionType == ActionType.ProdOrderAndOperationNoInput)
+function OperationNo_MouseDown() {
+    /*
+    if (((ViewModel)ui.DataContext).RequiredActionType == ActionType.ProdOrderAndOperationNoInput)
             {
                 addIn.RaiseControlAddInEvent(2, ((int)LookupType.ProdOrderOperation).ToString() + ((ViewModel)ui.DataContext).SeperatorCode + ui.Input.Text);
 
@@ -340,17 +312,14 @@ function transmitInput() {
                     transmitInput();
                 }
             }
-        }
+            */
+}
 
-        void MachineType_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
-        {
-            //if (!(ui.DataContext == null))
-            //    ((ViewModel)ui.DataContext).MachineNo = "";
-        }
+function MachineType_SelectionChanged() {
+}
 
-        void MachineNo_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            if (((ViewModel)ui.DataContext).RequiredActionType == ActionType.MachineTypeInput)
+function MachineNo_MouseDown() {
+    /*
             {
                 if (ui.MachineType.SelectedIndex == 1)
                 {
@@ -373,11 +342,12 @@ function transmitInput() {
                     }
                 }
             }
-        }
+*/
+}
 
-        void IdleCode_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            if (((ViewModel)ui.DataContext).RequiredActionType == ActionType.StandstillInput)
+function IdleCode_MouseDown() {
+    /*
+     if (((ViewModel)ui.DataContext).RequiredActionType == ActionType.StandstillInput)
             {
                 addIn.RaiseControlAddInEvent(2, ((int)LookupType.IdleCode).ToString());
 
@@ -387,8 +357,5 @@ function transmitInput() {
                     transmitInput();
                 }
             }
-        }
-        #endregion
-
-
-*/
+            */
+}
