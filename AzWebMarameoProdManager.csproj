@@ -32,6 +32,9 @@
     <Content Include="website/website_addins.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>    
+    <Content Include="website/website_enums.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>    
     
     <None Update="host.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

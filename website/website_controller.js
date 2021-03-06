@@ -38,26 +38,30 @@ function Controller(viewModel) {
         else
             document.getElementById("IdleCode").className = inputUnselected;
 
-        document.getElementById("MachineType").IsEnabled = (viewModel.RequiredActionType == "ActionType.MachineTypeInput");
-        document.getElementById("StartProcessButton").IsEnabled = ((viewModel.RequiredActionType == "ActionType.WaitingInput")
-            || (viewModel.RequiredActionType == "ActionType.SettingInput") || (viewModel.RequiredActionType == "ActionType.StandstillInput"));
-        document.getElementById("StartSetupButton").IsEnabled = ((viewModel.RequiredActionType == "ActionType.WaitingInput")
-            || (viewModel.RequiredActionType == "ActionType.ProgressInput")
-            || (viewModel.RequiredActionType == "ActionType.StandstillInput"));
-        document.getElementById("StartIdleButton").IsEnabled = ((viewModel.RequiredActionType == "ActionType.WaitingInput")
-            || (viewModel.RequiredActionType == "ActionType.SettingInput")
-            || (viewModel.RequiredActionType == "ActionType.ProgressInput"));
-        document.getElementById("EndProcessButton").IsEnabled = (viewModel.RequiredActionType == "ActionType.ProgressInput");
-        document.getElementById("EndSetupButton").IsEnabled = (viewModel.RequiredActionType == "ActionType.SettingInput");
-        document.getElementById("EndIdleButton").IsEnabled = (viewModel.RequiredActionType == "ActionType.StandstillInput");
-        document.getElementById("PostButton").IsEnabled = (viewModel.RequiredActionType == "ActionType.WaitingInput");
-        document.getElementById("SkipOperationButton").IsEnabled = (viewModel.RequiredActionType == "ActionType.WaitingInput");
-        document.getElementById("FinishOperationButton").IsEnabled = (viewModel.RequiredActionType == "ActionType.WaitingInput");
-        document.getElementById("ChangeUserButton").IsEnabled = true;
-        document.getElementById("ChangeMachineButton").IsEnabled = true;
-        document.getElementById("ScrapButton").IsEnabled = (viewModel.RequiredActionType == "ActionType.WaitingInput");
-        document.getElementById("OutPutButton").IsEnabled = (viewModel.RequiredActionType == "ActionType.WaitingInput");
+        document.getElementById("MachineType").disabled = !(viewModel.RequiredActionType == "ActionType.MachineTypeInput");
+        document.getElementById("StartProcessButton").disabled =
+            !((viewModel.RequiredActionType == "ActionType.WaitingInput")
+                || (viewModel.RequiredActionType == "ActionType.SettingInput") || (viewModel.RequiredActionType == "ActionType.StandstillInput"));
+        document.getElementById("StartSetupButton").disabled =
+            !((viewModel.RequiredActionType == "ActionType.WaitingInput")
+                || (viewModel.RequiredActionType == "ActionType.ProgressInput")
+                || (viewModel.RequiredActionType == "ActionType.StandstillInput"));
+        document.getElementById("StartIdleButton").disabled =
+            !((viewModel.RequiredActionType == "ActionType.WaitingInput")
+                || (viewModel.RequiredActionType == "ActionType.SettingInput")
+                || (viewModel.RequiredActionType == "ActionType.ProgressInput"));
+        document.getElementById("EndProcessButton").disabled = !(viewModel.RequiredActionType == "ActionType.ProgressInput");
+        document.getElementById("EndSetupButton").disabled = !(viewModel.RequiredActionType == "ActionType.SettingInput");
+        document.getElementById("EndIdleButton").disabled = !(viewModel.RequiredActionType == "ActionType.StandstillInput");
+        document.getElementById("PostButton").disabled = !(viewModel.RequiredActionType == "ActionType.WaitingInput");
+        document.getElementById("SkipOperationButton").disabled = !(viewModel.RequiredActionType == "ActionType.WaitingInput");
+        document.getElementById("FinishOperationButton").disabled = !(viewModel.RequiredActionType == "ActionType.WaitingInput");
+        document.getElementById("ChangeUserButton").disabled = false;
+        document.getElementById("ChangeMachineButton").disabled = false;
+        document.getElementById("ScrapButton").disabled = !(viewModel.RequiredActionType == "ActionType.WaitingInput");
+        document.getElementById("OutPutButton").disabled = !(viewModel.RequiredActionType == "ActionType.WaitingInput");
         //document.getElementById("Input").focus();
+        alert('StartProcessButton disabled:'+document.getElementById("StartProcessButton").disabled);
     } catch (err) {
         alert('Controller error: ' + err);
         console.log(err);
@@ -68,7 +72,6 @@ var DataContextAddIns;
 function InitController() {
 
     try {
-        alert('InitController');
         DataContextAddIns = new AddIns();
         /*document.getElementById("UserValue").ondblclick = UserValue_MouseDown;
         document.getElementById("ProductionOrderNo").ondblclick = ProductionOrderNo_MouseDown;
@@ -88,8 +91,7 @@ function InitController() {
         document.getElementById("ChangeMachineButton").onclick = ChangeMachineButton_Click;
         document.getElementById("ScrapButton").onclick = ScrapButton_Click;
         document.getElementById("OutPutButton").onclick = OutPutButton_Click;
-        document.getElementById("FinishOperationButton").onclick = FinishOperationButton_Click;
-        */
+        document.getElementById("FinishOperationButton").onclick = FinishOperationButton_Click;*/
     } catch (err) {
         alert('InitController error: ' + err);
         console.log(err);
@@ -104,18 +106,24 @@ function ProductionOrderNo_MouseDown() {
 
 function OperationNo_MouseDown() {
 }
+
 function MachineType_SelectionChanged() {
 }
+
 function MachineNo_MouseDown() {
 }
+
 function IdleCode_MouseDown() {
 }
+
 function StartProcessButton_Click() {
     try {
-        //if (document.getElementById("StartProcessButton").IsEnabled) {
-        //document.getElementById("Input").Text = DataContextAddIns.StartProcessingCommand;
-        transmitInput();
-        //}
+        alert('StartProcessButton_Click');
+        alert('StartProcessButton disabled:'+document.getElementById("StartProcessButton").disabled);
+        if (!document.getElementById("StartProcessButton").disabled) {
+            document.getElementById("Input").Text = DataContextAddIns.StartProcessingCommand;
+            transmitInput();
+        }
     } catch (err) {
         alert('StartProcessButton_Click error: ' + err);
         console.log(err);
@@ -281,3 +289,106 @@ function transmitInput() {
     }
 }
 
+/*
+
+        #region TextBox-Events
+        void UserValue_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if (((ViewModel)ui.DataContext).RequiredActionType == ActionType.UsernameInput)
+            {
+                addIn.RaiseControlAddInEvent(2, ((int) LookupType.User).ToString());
+
+                if (selectionCommitted())
+                {
+                    ui.Input.Text = ((ViewModel)ui.DataContext).SelectedInput;
+                    transmitInput();
+                }
+            }
+        }
+
+        void ProductionOrderNo_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if ((((ViewModel)ui.DataContext).RequiredActionType == ActionType.ProdOrderNoInput) || (((ViewModel)ui.DataContext).RequiredActionType == ActionType.ProdOrderAndOperationNoInput))
+            {
+                addIn.RaiseControlAddInEvent(2, ((int)LookupType.ProdOrder).ToString());
+
+                if (selectionCommitted())
+                {
+                    ui.Input.Text = ((ViewModel)ui.DataContext).SelectedInput;
+
+                    if (((ViewModel)ui.DataContext).RequiredActionType == ActionType.ProdOrderAndOperationNoInput)
+                    {
+                        ((ViewModel)ui.DataContext).SelectedInput = "";
+                    }
+                    else
+                    {
+                        transmitInput();
+                    }
+                }
+            }
+        }
+
+        void OperationNo_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if (((ViewModel)ui.DataContext).RequiredActionType == ActionType.ProdOrderAndOperationNoInput)
+            {
+                addIn.RaiseControlAddInEvent(2, ((int)LookupType.ProdOrderOperation).ToString() + ((ViewModel)ui.DataContext).SeperatorCode + ui.Input.Text);
+
+                if (selectionCommitted())
+                {
+                    ui.Input.Text = ((ViewModel)ui.DataContext).SelectedInput;
+                    transmitInput();
+                }
+            }
+        }
+
+        void MachineType_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            //if (!(ui.DataContext == null))
+            //    ((ViewModel)ui.DataContext).MachineNo = "";
+        }
+
+        void MachineNo_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if (((ViewModel)ui.DataContext).RequiredActionType == ActionType.MachineTypeInput)
+            {
+                if (ui.MachineType.SelectedIndex == 1)
+                {
+                    addIn.RaiseControlAddInEvent(2, ((int)LookupType.WorkCenter).ToString());
+
+                    if (selectionCommitted())
+                    {
+                        ui.Input.Text = ((ViewModel)ui.DataContext).WorkCenterCode + ((ViewModel)ui.DataContext).SelectedInput;
+                        transmitInput();
+                    }
+                }
+                else if (ui.MachineType.SelectedIndex == 2)
+                {
+                    addIn.RaiseControlAddInEvent(2, ((int)LookupType.WorkCenterGroup).ToString());
+
+                    if (selectionCommitted())
+                    {
+                        ui.Input.Text = ((ViewModel)ui.DataContext).WorkCenterGroupCode + ((ViewModel)ui.DataContext).SelectedInput;
+                        transmitInput();
+                    }
+                }
+            }
+        }
+
+        void IdleCode_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if (((ViewModel)ui.DataContext).RequiredActionType == ActionType.StandstillInput)
+            {
+                addIn.RaiseControlAddInEvent(2, ((int)LookupType.IdleCode).ToString());
+
+                if (selectionCommitted())
+                {
+                    ui.Input.Text = ((ViewModel)ui.DataContext).SelectedInput;
+                    transmitInput();
+                }
+            }
+        }
+        #endregion
+
+
+*/

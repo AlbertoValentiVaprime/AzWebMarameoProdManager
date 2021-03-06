@@ -16,7 +16,6 @@ function PostToBc(parameter) {
 }
 
 function PostToBcDemo(parameter) {
-
     try {
         console.log(parameter);
         CallJavaScript(parameter);
@@ -27,10 +26,11 @@ function PostToBcDemo(parameter) {
     }
 }
 
-
 function PostRaiseControlAddInEvent(index, msg) {
     try {
+        alert('PostToBc');
         PostToBc(msg);
+        alert('RaiseControlAddInEvent');
         RaiseControlAddInEvent(index, msg);
         return true;
     } catch (err) {
@@ -38,5 +38,17 @@ function PostRaiseControlAddInEvent(index, msg) {
         console.log(err);
     }
 }
+
+function DoPostControlAddInEvent(msg) {
+    try {
+        alert('DoPostControlAddInEvent '+msg);
+        return true;
+    } catch (err) {
+        alert('DoPostControlAddInEvent Error: ' + msg + ' -  ' + err);
+        console.log(err);
+    }
+}
+
+
 
 

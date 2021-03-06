@@ -11,7 +11,7 @@ namespace com.controladdin.businesscentral
 {
     public static class TestHtmlPage
     {
-        [FunctionName("TestHtmlPage")]
+        [FunctionName("HelloWorld")]
         public static async Task<HttpResponseMessage> Run(
            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)]
            HttpRequestMessage req,

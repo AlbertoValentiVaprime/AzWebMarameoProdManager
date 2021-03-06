@@ -1,7 +1,7 @@
 function GetViewModel(parameter) {
 
     try {
-        
+
         var user = document.getElementById("UserValue").value;
         var prodOrderNo = document.getElementById("ProductionOrderNo").value;
         var operationNo = document.getElementById("OperationNo").value;
@@ -13,7 +13,7 @@ function GetViewModel(parameter) {
         var machineType = document.getElementById("MachineType").value;
         var finish = '';
         var processingTime = document.getElementById("ProcessingTime").value;
-        var setupTime =  document.getElementById("SetupTime").value;
+        var setupTime = document.getElementById("SetupTime").value;
         var idleTime = document.getElementById("IdleTime").value;
         var idleCode = document.getElementById("IdleCode").value;;
         var finishedQuantity = document.getElementById("FinishedQuantity").value;
@@ -78,7 +78,7 @@ function GetViewModel(parameter) {
             selectedInput
         );
 
-      return viewModel;
+        return viewModel;
     } catch (err) {
         alert('GetViewModel error: ' + parameter + ' -  ' + err);
         console.log(err);

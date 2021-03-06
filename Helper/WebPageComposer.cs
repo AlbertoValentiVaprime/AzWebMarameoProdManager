@@ -27,6 +27,7 @@ namespace com.controladdin.businesscentral
             message.AppendLine("    <meta name=\"viewport\" content=\"initial-scale=1.0\">");
             message.AppendLine("    <meta charset=\"utf-8\">");
             message.AppendLine("    <script language='javascript'>");
+            message.AppendLine(ComposeJavaScript("../website/website_enums.js"));
             message.AppendLine(ComposeJavaScript("../website/website_viewmodel.js"));
             message.AppendLine(ComposeJavaScript("../website/website_controller.js"));
             message.AppendLine(ComposeJavaScript("../website/website_addins.js"));
