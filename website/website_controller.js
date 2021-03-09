@@ -69,21 +69,21 @@ function Controller(viewModel) {
 
 function DataBind(viewModel) {
     try {
-        document.getElementById("UserValue").Text = viewModel.User;
-        document.getElementById("ProductionOrderNo").Text = viewModel.ProdOrderNo;
-        document.getElementById("OperationNo").Text = viewModel.OperationNo;
-        document.getElementById("Status").Text = viewModel.User;
-        document.getElementById("MachineType").Text = viewModel.MachineType;
-        document.getElementById("MachineNo").Text = viewModel.MachineNo;
-        document.getElementById("Description").Text = viewModel.Description;
-        document.getElementById("SetupTime").Text = viewModel.SetupTime;
-        document.getElementById("ProcessingTime").Text = viewModel.ProcessingTime;
-        document.getElementById("IdleTime").Text = viewModel.IdleTime;
-        document.getElementById("IdleCode").Text = viewModel.IdleCode;
-        document.getElementById("FinishedQuantity").Text = viewModel.FinishedQuantity;
-        document.getElementById("ScrapQunatity").Text = viewModel.ScrapQuantity;
-        document.getElementById("Action").Text = viewModel.Action;
-        document.getElementById("Output").Text = viewModel.Output;
+        document.getElementById("UserValue").value = viewModel.User;
+        document.getElementById("ProductionOrderNo").value = viewModel.ProdOrderNo;
+        document.getElementById("OperationNo").value = viewModel.OperationNo;
+        document.getElementById("Status").value = viewModel.User;
+        document.getElementById("MachineType").value = viewModel.MachineType;
+        document.getElementById("MachineNo").value = viewModel.MachineNo;
+        document.getElementById("Description").value = viewModel.Description;
+        document.getElementById("SetupTime").value = viewModel.SetupTime;
+        document.getElementById("ProcessingTime").value = viewModel.ProcessingTime;
+        document.getElementById("IdleTime").value = viewModel.IdleTime;
+        document.getElementById("IdleCode").value = viewModel.IdleCode;
+        document.getElementById("FinishedQuantity").value = viewModel.FinishedQuantity;
+        document.getElementById("ScrapQunatity").value = viewModel.ScrapQuantity;
+        document.getElementById("Action").value = viewModel.Action;
+        document.getElementById("Output").value = viewModel.Output;
     } catch (err) {
         alert('DataBind error: ' + err);
         console.log(err);

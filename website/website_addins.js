@@ -50,47 +50,56 @@ class AddIns {
         return instance;
     }
 
+    unserialize(str) {
+        var instance = new ViewModel();
+        var serializedObject = JSON.parse(str);
+        Object.assign(instance, serializedObject);
+        return instance;
+    }
+
 }
 
-function LoadDummy()
-{
+function DoPostControlAddInEvent(message) {
     try {
+        alert('DoPostControlAddInEvent');
+        var addins = new AddIns().unserialize(message);
+        alert(addins.Action);
+        setProdOrderNo('Prod Order No');
+        setAction('ACTION');
+        setDescription('DESCRIPTION');
+        setMachineNo('Machine No');
+        setMachineType('Machine Type');
+        setOperationNo('Operation No');
+        setOutput('Output');
+        setProdOrderNo('Prod Order No');
+        setStatus('Status');
+        setUser('User');
+        setFinish('Finish');
+        setProcessingTime('Processing time');
+        setSetupTime('Setup time');
+        setIdleTime('Idle Time');
+        setIdleCode('Idle Code');
+        setFinishedQuantity('Finished Qty');
+        setScrapQuantity('Scarp Qty');
+        setRequiredActionType('Req. Action Type');
+        setSelectedInput('Selected Input');
+        setWorkCenterCode('Work Center Code');
+        setWorkCenterGroupCode('Work Center Group Code');
+        setSeperatorCode('Separator Code');
+        setStartProcessingCommand('Start Proc. Command');
+        setEndProcessingCommand('setEndProcessingCommand');
+        setStartSetupCommand('setStartSetupCommand');
+        setEndSetupCommand('setEndSetupCommand');
+        setStartIdleCommand('setStartIdleCommand');
+        setEndIdleCommand('setEndIdleCommand');
+        setPostCommand('setPostCommand');
+        setSkipOperationCommand('setSkipOperationCommand');
+        setChangeUserCommand('setChangeUserCommand');
+        setChangeMachineCommand('setChangeMachineCommand');
+        setOutPutButtonCommand('setOutPutButtonCommand');
+        setScrapButtonCommand('setScrapButtonCommand');
+        setFinishOperationCommand('setFinishOperationCommand');
 
-        setAction('ACTION') ;
-        setDescription('DESCRIPTION') ;
-        setMachineNo('Machine No') ;
-        setMachineType('Machine Type') ;
-        setOperationNo('Operation No') ;
-        setOutput('Output') ;
-        setProdOrderNo('Prod Order No') ;
-        setStatus('Status') ;
-        setUser('User') ;
-        setFinish('Finish') ;
-        setProcessingTime('Processing time') ;
-        setSetupTime('Setup time') ;
-        setIdleTime('Idle Time') ;
-        setIdleCode('Idle Code') ;
-        setFinishedQuantity('Finished Qty') ;
-        setScrapQuantity('Scarp Qty') ;
-        setRequiredActionType('Req. Action Type') ;
-        setSelectedInput('Selected Input') ;
-        setWorkCenterCode('Work Center Code') ;
-        setWorkCenterGroupCode('Work Center Group Code') ;
-        setSeperatorCode('Separator Code') ;
-        setStartProcessingCommand('Start Proc. Command') ;
-        setEndProcessingCommand(value) ;
-        setStartSetupCommand(value) ;
-        setEndSetupCommand(value) ;
-        setStartIdleCommand(value) ;
-        setEndIdleCommand(value) ;
-        setPostCommand(value) ;
-        setSkipOperationCommand(value) ;
-        setChangeUserCommand(value) ;
-        setChangeMachineCommand(value) ;
-        setOutPutButtonCommand(value) ;
-        setScrapButtonCommand(value) ;
-        setFinishOperationCommand(value) ;
-    
     }
     catch (err) {
         alert('LoadDummy error: ' + err);

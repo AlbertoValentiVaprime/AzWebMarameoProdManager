@@ -40,15 +40,7 @@ function PostRaiseControlAddInEvent(index, msg) {
     }
 }
 
-function DoPostControlAddInEvent(msg) {
-    try {
-        alert('DoPostControlAddInEvent ' + msg);
-        return true;
-    } catch (err) {
-        alert('DoPostControlAddInEvent Error: ' + msg + ' -  ' + err);
-        console.log(err);
-    }
-}
+
 
 
 
