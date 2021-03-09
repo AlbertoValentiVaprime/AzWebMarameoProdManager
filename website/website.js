@@ -28,10 +28,11 @@ function PostToBcDemo(parameter) {
 
 function PostRaiseControlAddInEvent(index, msg) {
     try {
-        alert('PostToBc');
+
         PostToBc(msg);
-        alert('RaiseControlAddInEvent');
+
         RaiseControlAddInEvent(index, msg);
+
         return true;
     } catch (err) {
         alert('PostRaiseControlAddInEvent Error: ' + msg + ' -  ' + err);
@@ -41,7 +42,7 @@ function PostRaiseControlAddInEvent(index, msg) {
 
 function DoPostControlAddInEvent(msg) {
     try {
-        alert('DoPostControlAddInEvent '+msg);
+        alert('DoPostControlAddInEvent ' + msg);
         return true;
     } catch (err) {
         alert('DoPostControlAddInEvent Error: ' + msg + ' -  ' + err);

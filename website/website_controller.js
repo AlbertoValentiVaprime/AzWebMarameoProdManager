@@ -133,7 +133,6 @@ function InitController() {
         document.getElementById("ScrapButton").onclick = ScrapButton_Click;
         document.getElementById("OutPutButton").onclick = OutPutButton_Click;
         document.getElementById("FinishOperationButton").onclick = FinishOperationButton_Click;*/
-        alert('AddIn succesfully loaded')
     } catch (err) {
         alert('InitController error: ' + err);
         console.log(err);
