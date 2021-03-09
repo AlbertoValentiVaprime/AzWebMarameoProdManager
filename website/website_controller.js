@@ -61,23 +61,59 @@ function Controller(viewModel) {
         document.getElementById("ScrapButton").disabled = !(viewModel.RequiredActionType == ActionType_WaitingInput);
         document.getElementById("OutPutButton").disabled = !(viewModel.RequiredActionType == ActionType_WaitingInput);
         //document.getElementById("Input").focus();
-        alert('StartProcessButton disabled:' + document.getElementById("StartProcessButton").disabled);
     } catch (err) {
         alert('Controller error: ' + err);
         console.log(err);
     }
 }
 
-window.onload = function() {
+function DataBind(viewModel) {
+    try {
+        document.getElementById("UserValue").Text = viewModel.User;
+        document.getElementById("ProductionOrderNo").Text = viewModel.ProdOrderNo;
+        document.getElementById("OperationNo").Text = viewModel.OperationNo;
+        document.getElementById("Status").Text = viewModel.User;
+        document.getElementById("MachineType").Text = viewModel.MachineType;
+        document.getElementById("MachineNo").Text = viewModel.MachineNo;
+        document.getElementById("Description").Text = viewModel.Description;
+        document.getElementById("SetupTime").Text = viewModel.SetupTime;
+        document.getElementById("ProcessingTime").Text = viewModel.ProcessingTime;
+        document.getElementById("IdleTime").Text = viewModel.IdleTime;
+        document.getElementById("IdleCode").Text = viewModel.IdleCode;
+        document.getElementById("FinishedQuantity").Text = viewModel.FinishedQuantity;
+        document.getElementById("ScrapQunatity").Text = viewModel.ScrapQuantity;
+        document.getElementById("Action").Text = viewModel.Action;
+        document.getElementById("Output").Text = viewModel.Output;
+    } catch (err) {
+        alert('DataBind error: ' + err);
+        console.log(err);
+    }
+
+}
+
+function UpdateUI(viewModel) {
+    try {
+        DataBind(viewModel);
+        Controller(viewModel);
+    } catch (err) {
+        alert('UpdateUI error: ' + err);
+        console.log(err);
+    }
+}
+
+window.onload = function () {
     InitController();
-  };
+};
 
 var DataContextAddIns;
+var CtrlAddinViewModel;
 
 function InitController() {
 
     try {
         DataContextAddIns = new AddIns();
+        CtrlAddinViewModel = GetViewModel('');
+
         /*document.getElementById("UserValue").ondblclick = UserValue_MouseDown;
         document.getElementById("ProductionOrderNo").ondblclick = ProductionOrderNo_MouseDown;
         document.getElementById("OperationNo").ondblclick = OperationNo_MouseDown;
@@ -97,6 +133,7 @@ function InitController() {
         document.getElementById("ScrapButton").onclick = ScrapButton_Click;
         document.getElementById("OutPutButton").onclick = OutPutButton_Click;
         document.getElementById("FinishOperationButton").onclick = FinishOperationButton_Click;*/
+        alert('AddIn succesfully loaded')
     } catch (err) {
         alert('InitController error: ' + err);
         console.log(err);
@@ -263,99 +300,108 @@ function transmitInput() {
 }
 
 
-function UserValue_MouseDown() {
-    /*
-    if (((ViewModel)ui.DataContext).RequiredActionType == ActionType.UsernameInput)
-            {
-                addIn.RaiseControlAddInEvent(2, ((int) LookupType.User).ToString());
+function selectionCommitted() {
+    if (DataContextAddIns.SelectedInput == '')
+        return false;
+    return true;
+    //return !string.IsNullOrEmpty(((ViewModel)ui.DataContext).SelectedInput);
+}
 
-                if (selectionCommitted())
-                {
-                    ui.Input.Text = ((ViewModel)ui.DataContext).SelectedInput;
-                    transmitInput();
-                }
+function UserValue_MouseDown() {
+    try {
+        if (DataContextAddIns.RequiredActionType == ActionType_UsernameInput) {
+            PostRaiseControlAddInEvent(2, LookupType_User);
+            if (selectionCommitted()) {
+                document.getElementById("Input").Text = DataContextAddIns.SelectedInput;
+                transmitInput();
             }
-            */
+
+        }
+    }
+    catch (err) {
+        alert('UserValue_MouseDown error: ' + err);
+        console.log(err);
+    }
 }
 
 function ProductionOrderNo_MouseDown() {
-    /*
- if ((((ViewModel)ui.DataContext).RequiredActionType == ActionType.ProdOrderNoInput) || (((ViewModel)ui.DataContext).RequiredActionType == ActionType.ProdOrderAndOperationNoInput))
-            {
-                addIn.RaiseControlAddInEvent(2, ((int)LookupType.ProdOrder).ToString());
-
-                if (selectionCommitted())
-                {
-                    ui.Input.Text = ((ViewModel)ui.DataContext).SelectedInput;
-
-                    if (((ViewModel)ui.DataContext).RequiredActionType == ActionType.ProdOrderAndOperationNoInput)
-                    {
-                        ((ViewModel)ui.DataContext).SelectedInput = "";
-                    }
-                    else
-                    {
-                        transmitInput();
-                    }
+    try {
+        if (DataContextAddIns.RequiredActionType == ActionType_ProdOrderNoInput) {
+            PostRaiseControlAddInEvent(2, LookupType_ProdOrder);
+            if (selectionCommitted()) {
+                document.getElementById("Input").Text = DataContextAddIns.SelectedInput;
+                if (DataContextAddIns.RequiredActionType == ActionType_ProdOrderAndOperationNoInput) {
+                    document.getElementById("Input").Text = '';
                 }
-            }    */
-}
-
-function OperationNo_MouseDown() {
-    /*
-    if (((ViewModel)ui.DataContext).RequiredActionType == ActionType.ProdOrderAndOperationNoInput)
-            {
-                addIn.RaiseControlAddInEvent(2, ((int)LookupType.ProdOrderOperation).ToString() + ((ViewModel)ui.DataContext).SeperatorCode + ui.Input.Text);
-
-                if (selectionCommitted())
-                {
-                    ui.Input.Text = ((ViewModel)ui.DataContext).SelectedInput;
+                else {
                     transmitInput();
                 }
             }
-            */
+
+        }
+    }
+    catch (err) {
+        alert('ProductionOrderNo_MouseDown error: ' + err);
+    }
+}
+
+function OperationNo_MouseDown() {
+    try {
+        if (DataContextAddIns.RequiredActionType == ActionType_ProdOrderAndOperationNoInput) {
+            var param1 = LookupType_ProdOrderOperation + DataContextAddIns.SeperatorCode + document.getElementById("Input").Text;
+            PostRaiseControlAddInEvent(2, param1);
+            if (selectionCommitted()) {
+                document.getElementById("Input").Text = DataContextAddIns.SelectedInput;
+                transmitInput();
+            }
+        }
+    }
+    catch (err) {
+        alert('OperationNo_MouseDown error: ' + err);
+        console.log(err);
+    }
+
 }
 
 function MachineType_SelectionChanged() {
 }
 
 function MachineNo_MouseDown() {
-    /*
-            {
-                if (ui.MachineType.SelectedIndex == 1)
-                {
-                    addIn.RaiseControlAddInEvent(2, ((int)LookupType.WorkCenter).ToString());
-
-                    if (selectionCommitted())
-                    {
-                        ui.Input.Text = ((ViewModel)ui.DataContext).WorkCenterCode + ((ViewModel)ui.DataContext).SelectedInput;
-                        transmitInput();
-                    }
-                }
-                else if (ui.MachineType.SelectedIndex == 2)
-                {
-                    addIn.RaiseControlAddInEvent(2, ((int)LookupType.WorkCenterGroup).ToString());
-
-                    if (selectionCommitted())
-                    {
-                        ui.Input.Text = ((ViewModel)ui.DataContext).WorkCenterGroupCode + ((ViewModel)ui.DataContext).SelectedInput;
-                        transmitInput();
-                    }
-                }
+    try {
+        if (document.getElementById("MachineType").Text == 1) {
+            PostRaiseControlAddInEvent(2, LookupType_WorkCenter);
+            if (selectionCommitted()) {
+                document.getElementById("Input").Text = DataContextAddIns.WorkCenterCode + DataContextAddIns.SelectedInput;
+                transmitInput();
             }
-*/
+        }
+        else if (document.getElementById("MachineType").Text == 2) {
+            PostRaiseControlAddInEvent(2, LookupType_WorkCenterGroup);
+            if (selectionCommitted()) {
+                document.getElementById("Input").Text = DataContextAddIns.WorkCenterGroupCode + DataContextAddIns.SelectedInput;
+                transmitInput();
+            }
+        }
+    }
+    catch (err) {
+        alert('MachineNo_MouseDown error: ' + err);
+        console.log(err);
+    }
+
 }
 
 function IdleCode_MouseDown() {
-    /*
-     if (((ViewModel)ui.DataContext).RequiredActionType == ActionType.StandstillInput)
-            {
-                addIn.RaiseControlAddInEvent(2, ((int)LookupType.IdleCode).ToString());
-
-                if (selectionCommitted())
-                {
-                    ui.Input.Text = ((ViewModel)ui.DataContext).SelectedInput;
-                    transmitInput();
-                }
+    try {
+        if (DataContextAddIns.RequiredActionType == ActionType_StandstillInput) {
+            PostRaiseControlAddInEvent(2, LookupType_IdleCode);
+            if (selectionCommitted()) {
+                document.getElementById("Input").Text = DataContextAddIns.SelectedInput;
+                transmitInput();
             }
-            */
+        }
+    }
+    catch (err) {
+        alert('IdleCode_MouseDown error: ' + err);
+        console.log(err);
+    }
 }
