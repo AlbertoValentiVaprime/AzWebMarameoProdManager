@@ -113,26 +113,6 @@ function InitController() {
     try {
         DataContextAddIns = new AddIns();
         CtrlAddinViewModel = GetViewModel('');
-
-        /*document.getElementById("UserValue").ondblclick = UserValue_MouseDown;
-        document.getElementById("ProductionOrderNo").ondblclick = ProductionOrderNo_MouseDown;
-        document.getElementById("OperationNo").ondblclick = OperationNo_MouseDown;
-        document.getElementById("MachineType").ondblclick = MachineType_SelectionChanged;
-        document.getElementById("MachineNo").onmousedown = MachineNo_MouseDown;
-        document.getElementById("IdleCode").onmousedown = IdleCode_MouseDown;
-        document.getElementById("StartProcessButton").onclick = StartProcessButton_Click;
-        document.getElementById("StartSetupButton").onclick = StartSetupButton_Click;
-        document.getElementById("StartIdleButton").onclick = StartIdleButton_Click;
-        document.getElementById("EndProcessButton").onclick = EndProcessButton_Click;
-        document.getElementById("EndSetupButton").onclick = EndSetupButton_Click;
-        document.getElementById("EndIdleButton").onclick = EndIdleButton_Click;
-        document.getElementById("PostButton").onclick = PostButton_Click;
-        document.getElementById("SkipOperationButton").onclick = SkipOperationButton_Click;
-        document.getElementById("ChangeUserButton").onclick = ChangeUserButton_Click;
-        document.getElementById("ChangeMachineButton").onclick = ChangeMachineButton_Click;
-        document.getElementById("ScrapButton").onclick = ScrapButton_Click;
-        document.getElementById("OutPutButton").onclick = OutPutButton_Click;
-        document.getElementById("FinishOperationButton").onclick = FinishOperationButton_Click;*/
     } catch (err) {
         alert('InitController error: ' + err);
         console.log(err);
