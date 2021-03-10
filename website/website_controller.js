@@ -72,7 +72,7 @@ function DataBind(viewModel) {
         document.getElementById("UserValue").value = viewModel.User;
         document.getElementById("ProductionOrderNo").value = viewModel.ProdOrderNo;
         document.getElementById("OperationNo").value = viewModel.OperationNo;
-        document.getElementById("Status").value = viewModel.User;
+        document.getElementById("Status").value = viewModel.Status;
         document.getElementById("MachineType").value = viewModel.MachineType;
         document.getElementById("MachineNo").value = viewModel.MachineNo;
         document.getElementById("Description").value = viewModel.Description;

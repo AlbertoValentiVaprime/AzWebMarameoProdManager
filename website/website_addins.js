@@ -61,48 +61,47 @@ class AddIns {
 
 function DoPostControlAddInEvent(message) {
     try {
-        alert('DoPostControlAddInEvent');
+
         var addins = new AddIns().unserialize(message);
-        alert(addins.Action);
-        setProdOrderNo('Prod Order No');
-        setAction('ACTION');
-        setDescription('DESCRIPTION');
-        setMachineNo('Machine No');
-        setMachineType('Machine Type');
-        setOperationNo('Operation No');
-        setOutput('Output');
-        setProdOrderNo('Prod Order No');
-        setStatus('Status');
-        setUser('User');
-        setFinish('Finish');
-        setProcessingTime('Processing time');
-        setSetupTime('Setup time');
-        setIdleTime('Idle Time');
-        setIdleCode('Idle Code');
-        setFinishedQuantity('Finished Qty');
-        setScrapQuantity('Scarp Qty');
-        setRequiredActionType('Req. Action Type');
-        setSelectedInput('Selected Input');
-        setWorkCenterCode('Work Center Code');
-        setWorkCenterGroupCode('Work Center Group Code');
-        setSeperatorCode('Separator Code');
-        setStartProcessingCommand('Start Proc. Command');
-        setEndProcessingCommand('setEndProcessingCommand');
-        setStartSetupCommand('setStartSetupCommand');
-        setEndSetupCommand('setEndSetupCommand');
-        setStartIdleCommand('setStartIdleCommand');
-        setEndIdleCommand('setEndIdleCommand');
-        setPostCommand('setPostCommand');
-        setSkipOperationCommand('setSkipOperationCommand');
-        setChangeUserCommand('setChangeUserCommand');
-        setChangeMachineCommand('setChangeMachineCommand');
-        setOutPutButtonCommand('setOutPutButtonCommand');
-        setScrapButtonCommand('setScrapButtonCommand');
-        setFinishOperationCommand('setFinishOperationCommand');
+        DataContextAddIns = addins;
+        setProdOrderNo(addins.ProdOrderNo);
+        setAction(addins.Action);
+        setDescription(addins.Description);
+        setMachineNo(addins.MachineNo);
+        setMachineType(addins.MachineType);
+        setOperationNo(addins.OperationNo);
+        setOutput(addins.Output);
+        setStatus(addins.Status);
+        setUser(addins.User);
+        setFinish(addins.Finish);
+        setProcessingTime(addins.ProcessingTime);
+        setSetupTime(addins.SetupTime);
+        setIdleTime(addins.IdleTime);
+        setIdleCode(addins.IdleCode);
+        setFinishedQuantity(addins.FinishedQuantity);
+        setScrapQuantity(addins.ScrapQuantity);
+        setRequiredActionType(addins.RequiredActionType);
+        setSelectedInput(addins.SelectedInput);
+        setWorkCenterCode(addins.WorkCenterCode);
+        setWorkCenterGroupCode(addins.WorkCenterGroupCode);
+        setSeperatorCode(addins.SeperatorCode);
+        setStartProcessingCommand(addins.StartProcessingCommand);
+        setEndProcessingCommand(addins.EndProcessingCommand);
+        setStartSetupCommand(addins.StartSetupCommand);
+        setEndSetupCommand(addins.EndSetupCommand);
+        setStartIdleCommand(addins.StartIdleCommand);
+        setEndIdleCommand(addins.EndIdleCommand);
+        setPostCommand(addins.PostCommand);
+        setSkipOperationCommand(addins.SkipOperationCommand);
+        setChangeUserCommand(addins.ChangeUserCommand);
+        setChangeMachineCommand(addins.ChangeMachineCommand);
+        setOutPutButtonCommand(addins.OutPutButtonCommand);
+        setScrapButtonCommand(addins.ScrapButtonCommand);
+        setFinishOperationCommand(addins.FinishOperationCommand);
 
     }
     catch (err) {
-        alert('LoadDummy error: ' + err);
+        alert('DoPostControlAddInEvent error: ' + err);
         console.log(err);
     }
 
@@ -151,7 +150,7 @@ function setProdOrderNo(value) {
     UpdateUI(CtrlAddinViewModel);
 }
 
-function setStatus(value) {
+function Status(value) {
     AddIns.Status = value;
     CtrlAddinViewModel.Status = value;
     UpdateUI(CtrlAddinViewModel);
