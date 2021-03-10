@@ -80,7 +80,7 @@ function GetViewModel(parameter) {
 
         return viewModel;
     } catch (err) {
-        alert('GetViewModel error: ' + parameter + ' -  ' + err);
+        alert('GetViewModel error:'+ err);
         console.log(err);
     }
 }

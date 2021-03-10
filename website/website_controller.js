@@ -41,7 +41,8 @@ function Controller(viewModel) {
         document.getElementById("MachineType").disabled = !(viewModel.RequiredActionType == ActionType_MachineTypeInput);
         document.getElementById("StartProcessButton").disabled =
             !((viewModel.RequiredActionType == ActionType_WaitingInput)
-                || (viewModel.RequiredActionType == ActionType_SettingInput) || (viewModel.RequiredActionType == ActionType_StandstillInput));
+                || (viewModel.RequiredActionType == ActionType_SettingInput) 
+                || (viewModel.RequiredActionType == ActionType_StandstillInput));
         document.getElementById("StartSetupButton").disabled =
             !((viewModel.RequiredActionType == ActionType_WaitingInput)
                 || (viewModel.RequiredActionType == ActionType_ProgressInput)
