@@ -102,7 +102,6 @@ function DoPostControlAddInEvent(message) {
     }
     catch (err) {
         alert('DoPostControlAddInEvent error: ' + err);
-        console.log(err);
     }
 
 }

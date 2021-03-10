@@ -64,7 +64,6 @@ function Controller(viewModel) {
         //document.getElementById("Input").focus();
     } catch (err) {
         alert('Controller error: ' + err);
-        console.log(err);
     }
 }
 
@@ -87,7 +86,7 @@ function DataBind(viewModel) {
         document.getElementById("Output").value = viewModel.Output;
     } catch (err) {
         alert('DataBind error: ' + err);
-        console.log(err);
+        
     }
 
 }
@@ -98,7 +97,7 @@ function UpdateUI(viewModel) {
         Controller(viewModel);
     } catch (err) {
         alert('UpdateUI error: ' + err);
-        console.log(err);
+        
     }
 }
 
@@ -116,19 +115,20 @@ function InitController() {
         CtrlAddinViewModel = GetViewModel('');
     } catch (err) {
         alert('InitController error: ' + err);
-        console.log(err);
+        
     }
 }
 
 function StartProcessButton_Click() {
     try {
+       
         if (!document.getElementById("StartProcessButton").disabled) {
             document.getElementById("Input").Text = DataContextAddIns.StartProcessingCommand;
             transmitInput();
         }
     } catch (err) {
         alert('StartProcessButton_Click error: ' + err);
-        console.log(err);
+        
     }
 
 }
@@ -140,7 +140,7 @@ function StartSetupButton_Click() {
         }
     } catch (err) {
         alert('StartSetupButton_Click error: ' + err);
-        console.log(err);
+        
     }
 }
 function StartIdleButton_Click() {
@@ -151,7 +151,7 @@ function StartIdleButton_Click() {
         }
     } catch (err) {
         alert('StartIdleButton_Click error: ' + err);
-        console.log(err);
+        
     }
 }
 function EndProcessButton_Click() {
@@ -162,7 +162,7 @@ function EndProcessButton_Click() {
         }
     } catch (err) {
         alert('EndProcessButton_Click error: ' + err);
-        console.log(err);
+        
     }
 }
 
@@ -174,7 +174,7 @@ function EndSetupButton_Click() {
         }
     } catch (err) {
         alert('EndSetupButton_Click error: ' + err);
-        console.log(err);
+        
     }
 }
 
@@ -186,7 +186,7 @@ function EndIdleButton_Click() {
         }
     } catch (err) {
         alert('EndIdleButton_Click error: ' + err);
-        console.log(err);
+        
     }
 }
 function PostButton_Click() {
@@ -197,7 +197,7 @@ function PostButton_Click() {
         }
     } catch (err) {
         alert('PostButton_Click error: ' + err);
-        console.log(err);
+        
     }
 }
 function SkipOperationButton_Click() {
@@ -208,7 +208,7 @@ function SkipOperationButton_Click() {
         }
     } catch (err) {
         alert('SkipOperationButton_Click error: ' + err);
-        console.log(err);
+        
     }
 }
 function ChangeUserButton_Click() {
@@ -219,7 +219,7 @@ function ChangeUserButton_Click() {
         }
     } catch (err) {
         alert('ChangeUserButton_Click error: ' + err);
-        console.log(err);
+        
     }
 }
 function ChangeMachineButton_Click() {
@@ -230,7 +230,7 @@ function ChangeMachineButton_Click() {
         }
     } catch (err) {
         alert('ChangeMachineButton_Click error: ' + err);
-        console.log(err);
+        
     }
 }
 function ScrapButton_Click() {
@@ -241,7 +241,7 @@ function ScrapButton_Click() {
         }
     } catch (err) {
         alert('ScrapButton_Click error: ' + err);
-        console.log(err);
+        
     }
 }
 function OutPutButton_Click() {
@@ -252,7 +252,7 @@ function OutPutButton_Click() {
         }
     } catch (err) {
         alert('OutPutButton_Click error: ' + err);
-        console.log(err);
+        
     }
 }
 function FinishOperationButton_Click() {
@@ -263,7 +263,7 @@ function FinishOperationButton_Click() {
         }
     } catch (err) {
         alert('FinishOperationButton_Click error: ' + err);
-        console.log(err);
+        
     }
 }
 
@@ -275,7 +275,7 @@ function transmitInput() {
         DataContextAddIns.SelectedInput = '';
     } catch (err) {
         alert('transmitInput error: ' + err);
-        console.log(err);
+        
     }
 }
 
@@ -300,7 +300,7 @@ function UserValue_MouseDown() {
     }
     catch (err) {
         alert('UserValue_MouseDown error: ' + err);
-        console.log(err);
+        
     }
 }
 
@@ -338,7 +338,7 @@ function OperationNo_MouseDown() {
     }
     catch (err) {
         alert('OperationNo_MouseDown error: ' + err);
-        console.log(err);
+        
     }
 
 }
@@ -365,7 +365,7 @@ function MachineNo_MouseDown() {
     }
     catch (err) {
         alert('MachineNo_MouseDown error: ' + err);
-        console.log(err);
+        
     }
 
 }
@@ -382,6 +382,6 @@ function IdleCode_MouseDown() {
     }
     catch (err) {
         alert('IdleCode_MouseDown error: ' + err);
-        console.log(err);
+        
     }
 }
