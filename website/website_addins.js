@@ -150,7 +150,7 @@ function setProdOrderNo(value) {
     UpdateUI(CtrlAddinViewModel);
 }
 
-function Status(value) {
+function setStatus(value) {
     AddIns.Status = value;
     CtrlAddinViewModel.Status = value;
     UpdateUI(CtrlAddinViewModel);
