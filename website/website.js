@@ -7,8 +7,9 @@ function PostToBc(parameter) {
         var json = viewModel.serialize().toString();
 
         Controller(viewModel);
-        CallJavaScript(json);
-        //console.log(json);
+
+        if (typeof (CallJavaScript) == 'function')
+            CallJavaScript(json);
     } catch (err) {
         alert('PostToBc error: ' + parameter + ' -  ' + err);
     }
@@ -16,8 +17,7 @@ function PostToBc(parameter) {
 
 function PostToBcDemo(parameter) {
     try {
-        console.log(parameter);
-        CallJavaScript(parameter);
+        CallJavaScript(parameter); x
     } catch (err) {
         alert('PostToBcDemo Error: ' + parameter + ' -  ' + err);
     }
@@ -26,7 +26,8 @@ function PostToBcDemo(parameter) {
 function PostRaiseControlAddInEvent(index, msg) {
     try {
         PostToBc(msg);
-        RaiseControlAddInEvent(index, msg);
+        if (typeof (RaiseControlAddInEvent) == 'function')
+            RaiseControlAddInEvent(index, msg);
     } catch (err) {
         alert('PostRaiseControlAddInEvent Error: ' + msg + ' -  ' + err);
     }

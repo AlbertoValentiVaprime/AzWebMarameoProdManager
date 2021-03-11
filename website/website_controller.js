@@ -41,7 +41,7 @@ function Controller(viewModel) {
         document.getElementById("MachineType").disabled = !(viewModel.RequiredActionType == ActionType_MachineTypeInput);
         document.getElementById("StartProcessButton").disabled =
             !((viewModel.RequiredActionType == ActionType_WaitingInput)
-                || (viewModel.RequiredActionType == ActionType_SettingInput) 
+                || (viewModel.RequiredActionType == ActionType_SettingInput)
                 || (viewModel.RequiredActionType == ActionType_StandstillInput));
         document.getElementById("StartSetupButton").disabled =
             !((viewModel.RequiredActionType == ActionType_WaitingInput)
@@ -61,6 +61,7 @@ function Controller(viewModel) {
         document.getElementById("ChangeMachineButton").disabled = false;
         document.getElementById("ScrapButton").disabled = !(viewModel.RequiredActionType == ActionType_WaitingInput);
         document.getElementById("OutPutButton").disabled = !(viewModel.RequiredActionType == ActionType_WaitingInput);
+
         //document.getElementById("Input").focus();
     } catch (err) {
         alert('Controller error: ' + err);
@@ -86,7 +87,7 @@ function DataBind(viewModel) {
         document.getElementById("Output").value = viewModel.Output;
     } catch (err) {
         alert('DataBind error: ' + err);
-        
+
     }
 
 }
@@ -97,7 +98,7 @@ function UpdateUI(viewModel) {
         Controller(viewModel);
     } catch (err) {
         alert('UpdateUI error: ' + err);
-        
+
     }
 }
 
@@ -113,22 +114,47 @@ function InitController() {
     try {
         DataContextAddIns = new AddIns();
         CtrlAddinViewModel = GetViewModel('');
+        AttachEvents();
     } catch (err) {
         alert('InitController error: ' + err);
-        
+
     }
+}
+
+function AttachEvents() {
+
+    document.getElementById("UserValue").ondblclick = UserValue_MouseDown;
+    document.getElementById("ProductionOrderNo").ondblclick = ProductionOrderNo_MouseDown;
+    document.getElementById("OperationNo").ondblclick = OperationNo_MouseDown;
+    document.getElementById("MachineNo").ondblclick = MachineNo_MouseDown;
+    document.getElementById("IdleCode").ondblclick = IdleCode_MouseDown;
+
+    document.getElementById("StartProcessButton").onclick = StartProcessButton_Click;
+    document.getElementById("StartSetupButton").onclick = StartSetupButton_Click;
+    document.getElementById("StartIdleButton").onclick = StartIdleButton_Click;
+    document.getElementById("EndProcessButton").onclick = EndProcessButton_Click;
+    document.getElementById("EndSetupButton").onclick = EndSetupButton_Click;
+    document.getElementById("EndIdleButton").onclick = EndIdleButton_Click;
+    document.getElementById("PostButton").onclick = PostButton_Click;
+    document.getElementById("SkipOperationButton").onclick = SkipOperationButton_Click;
+    document.getElementById("ChangeUserButton").onclick = ChangeUserButton_Click;
+    document.getElementById("ChangeMachineButton").onclick = ChangeMachineButton_Click;
+    document.getElementById("ScrapButton").onclick = ScrapButton_Click;
+    document.getElementById("OutPutButton").onclick = OutPutButton_Click;
+    document.getElementById("FinishOperationButton").onclick = FinishOperationButton_Click;
+
 }
 
 function StartProcessButton_Click() {
     try {
-       
+        alert('StartProcessButton_Click');
         if (!document.getElementById("StartProcessButton").disabled) {
             document.getElementById("Input").Text = DataContextAddIns.StartProcessingCommand;
             transmitInput();
         }
     } catch (err) {
         alert('StartProcessButton_Click error: ' + err);
-        
+
     }
 
 }
@@ -140,7 +166,7 @@ function StartSetupButton_Click() {
         }
     } catch (err) {
         alert('StartSetupButton_Click error: ' + err);
-        
+
     }
 }
 function StartIdleButton_Click() {
@@ -151,7 +177,7 @@ function StartIdleButton_Click() {
         }
     } catch (err) {
         alert('StartIdleButton_Click error: ' + err);
-        
+
     }
 }
 function EndProcessButton_Click() {
@@ -162,7 +188,7 @@ function EndProcessButton_Click() {
         }
     } catch (err) {
         alert('EndProcessButton_Click error: ' + err);
-        
+
     }
 }
 
@@ -174,7 +200,7 @@ function EndSetupButton_Click() {
         }
     } catch (err) {
         alert('EndSetupButton_Click error: ' + err);
-        
+
     }
 }
 
@@ -186,7 +212,7 @@ function EndIdleButton_Click() {
         }
     } catch (err) {
         alert('EndIdleButton_Click error: ' + err);
-        
+
     }
 }
 function PostButton_Click() {
@@ -197,7 +223,7 @@ function PostButton_Click() {
         }
     } catch (err) {
         alert('PostButton_Click error: ' + err);
-        
+
     }
 }
 function SkipOperationButton_Click() {
@@ -208,7 +234,7 @@ function SkipOperationButton_Click() {
         }
     } catch (err) {
         alert('SkipOperationButton_Click error: ' + err);
-        
+
     }
 }
 function ChangeUserButton_Click() {
@@ -219,7 +245,7 @@ function ChangeUserButton_Click() {
         }
     } catch (err) {
         alert('ChangeUserButton_Click error: ' + err);
-        
+
     }
 }
 function ChangeMachineButton_Click() {
@@ -230,7 +256,7 @@ function ChangeMachineButton_Click() {
         }
     } catch (err) {
         alert('ChangeMachineButton_Click error: ' + err);
-        
+
     }
 }
 function ScrapButton_Click() {
@@ -241,7 +267,7 @@ function ScrapButton_Click() {
         }
     } catch (err) {
         alert('ScrapButton_Click error: ' + err);
-        
+
     }
 }
 function OutPutButton_Click() {
@@ -252,7 +278,7 @@ function OutPutButton_Click() {
         }
     } catch (err) {
         alert('OutPutButton_Click error: ' + err);
-        
+
     }
 }
 function FinishOperationButton_Click() {
@@ -263,19 +289,18 @@ function FinishOperationButton_Click() {
         }
     } catch (err) {
         alert('FinishOperationButton_Click error: ' + err);
-        
+
     }
 }
 
 function transmitInput() {
     try {
-        PostRaiseControlAddInEvent(0, document.getElementById("Input").Text);//0 Text entered in Input
-        document.getElementById("Input").Text = '';
-        //ui.Input.Focus();
+        PostRaiseControlAddInEvent(0, document.getElementById("Input").value);
+        document.getElementById("Input").value = '';
+        document.getElementById("Input").focus();
         DataContextAddIns.SelectedInput = '';
     } catch (err) {
         alert('transmitInput error: ' + err);
-        
     }
 }
 
@@ -284,7 +309,6 @@ function selectionCommitted() {
     if (DataContextAddIns.SelectedInput == '')
         return false;
     return true;
-    //return !string.IsNullOrEmpty(((ViewModel)ui.DataContext).SelectedInput);
 }
 
 function UserValue_MouseDown() {
@@ -300,7 +324,7 @@ function UserValue_MouseDown() {
     }
     catch (err) {
         alert('UserValue_MouseDown error: ' + err);
-        
+
     }
 }
 
@@ -338,12 +362,8 @@ function OperationNo_MouseDown() {
     }
     catch (err) {
         alert('OperationNo_MouseDown error: ' + err);
-        
+
     }
-
-}
-
-function MachineType_SelectionChanged() {
 }
 
 function MachineNo_MouseDown() {
@@ -365,7 +385,7 @@ function MachineNo_MouseDown() {
     }
     catch (err) {
         alert('MachineNo_MouseDown error: ' + err);
-        
+
     }
 
 }
@@ -382,6 +402,6 @@ function IdleCode_MouseDown() {
     }
     catch (err) {
         alert('IdleCode_MouseDown error: ' + err);
-        
+
     }
 }

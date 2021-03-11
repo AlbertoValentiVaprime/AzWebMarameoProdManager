@@ -8,21 +8,21 @@
 					<label for="UserValue">
 						<i class="far fa-user"></i>Mitarbeiter
 					</label>
-					<input id="UserValue" name="UserValue" type="text" placeholder="" ondblclick='UserValue_MouseDown()'>
+					<input id="UserValue" name="UserValue" type="text" placeholder="" xxondblclick='UserValue_MouseDown()'>
 				</div>
 
 				<div class="field" tabindex="2">
 					<label for="ProductionOrderNo">
 						<i class="far fa-envelope"></i>FA-Nr
 					</label>
-					<input id="ProductionOrderNo" name="ProductionOrderNo" type="text" placeholder="" ondblclick='ProductionOrderNo_MouseDown()'>
+					<input id="ProductionOrderNo" name="ProductionOrderNo" type="text" placeholder="" xxondblclick='ProductionOrderNo_MouseDown()'>
 				</div>
 
 				<div class="field" tabindex="3">
 					<label for="OperationNo">
 						<i class="far fa-edit"></i>Arbeitsgangnr
 					</label>
-					<input id="OperationNo" name="OperationNo" placeholder="" ondblclick='OperationNo_MouseDown()'></input>
+					<input id="OperationNo" name="OperationNo" placeholder="" xxondblclick='OperationNo_MouseDown()'></input>
 				</div>
 
 				<div class="field" tabindex="4">
@@ -40,14 +40,14 @@
 					<label for="MachineType">
 						<i class="far fa-edit"></i>Maschinenart
 					</label>
-					<input id="MachineType" name="MachineType" placeholder="" ondblclick='MachineType_SelectionChanged()'></input>
+					<input id="MachineType" name="MachineType" placeholder="" xxondblclick='MachineType_SelectionChanged()'></input>
 				</div>
 
 				<div class="field" tabindex="6">
 					<label for="MachineNo">
 						<i class="far fa-edit"></i>Maschinennr
 					</label>
-					<input id="MachineNo" name="MachineNo" placeholder="" ondblclick='MachineNo_MouseDown()'></input>
+					<input id="MachineNo" name="MachineNo" placeholder="" xxondblclick='MachineNo_MouseDown()'></input>
 				</div>
 
 				<div class="field" tabindex="7">
@@ -64,21 +64,21 @@
 
 			<div class="column">
 
-				<button class="button_green" id="StartSetupButton" onclick="StartSetupButton_Click()">Start
+				<button class="button_green" id="StartSetupButton" xxonclick="StartSetupButton_Click()">Start
 					Rüsten</button>
 
-				<button class="button_red" id="EndSetupButton" onclick="EndSetupButton_Click()">Ende Rüsten</button>
+				<button class="button_red" id="EndSetupButton" xxonclick="EndSetupButton_Click()">Ende Rüsten</button>
 
-				<button class="button_green" id="StartProcessButton" onclick="StartProcessButton_Click()">Start
+				<button class="button_green" id="StartProcessButton" xxonclick="StartProcessButton_Click()">Start
 					Bearbeiten</button>
 
-				<button class="button_red" id="EndProcessButton" onclick="EndProcessButton_Click()">Ende
+				<button class="button_red" id="EndProcessButton" xxonclick="EndProcessButton_Click()">Ende
 					Bearbeiten</button>
 
-				<button class="button_green" id="StartIdleButton" onclick="StartIdleButton_Click()">Start
+				<button class="button_green" id="StartIdleButton" xxonclick="StartIdleButton_Click()">Start
 					Stillstand</button>
 
-				<button class="button_red" id="EndIdleButton" onclick="EndIdleButton_Click()">Ende
+				<button class="button_red" id="EndIdleButton" xxonclick="EndIdleButton_Click()">Ende
 					Stillstand</button>
 
 			</div>
@@ -110,7 +110,7 @@
 					<label for="IdleCode">
 						<i class="far fa-edit"></i>Stillstandscode
 					</label>
-					<input id="IdleCode" name="IdleCode" placeholder="" ondblclick='IdleCode_MouseDown()'></input>
+					<input id="IdleCode" name="IdleCode" placeholder="" xxondblclick='IdleCode_MouseDown()'></input>
 				</div>
 
 			</div>
@@ -122,9 +122,9 @@
 
 			<div class="column">
 
-				<button class="button_green" id="OutPutButton" onclick="OutPutButton_Click()">Ist - Meldung</button>
+				<button class="button_green" id="OutPutButton" xxonclick="OutPutButton_Click()">Ist - Meldung</button>
 
-				<button class="button_red" id="ScrapButton" onclick="ScrapButton_Click()">Ausschuss</button>
+				<button class="button_red" id="ScrapButton" xxonclick="ScrapButton_Click()">Ausschuss</button>
 
 			</div>
 
@@ -181,20 +181,20 @@
 		<div class="rownbuttons">
 
 			<div class="columnbuttons">
-				<button id="PostButton" onclick="PostButton_Click()">Buchen</button>
+				<button id="PostButton" xxonclick="PostButton_Click()">Buchen</button>
 			</div>
 			<div class="columnbuttons">
-				<button id="FinishOperationButton" onclick="FinishOperationButton_Click()">Arbeitsgang
+				<button id="FinishOperationButton" xxonclick="FinishOperationButton_Click()">Arbeitsgang
 					überspringen</button>
 			</div>
 			<div class="columnbuttons">
-				<button id="SkipOperationButton" onclick="SkipOperationButton_Click()">Arbeitsgang beenden</button>
+				<button id="SkipOperationButton" xxonclick="SkipOperationButton_Click()">Arbeitsgang beenden</button>
 			</div>
 			<div class="columnbuttons">
-				<button id="ChangeUserButton" onclick="ChangeUserButton_Click()">Benutzer wechseln</button>
+				<button id="ChangeUserButton" xxonclick="ChangeUserButton_Click()">Benutzer wechseln</button>
 			</div>
 			<div class="columnbuttons">
-				<button id="ChangeMachineButton" onclick="ChangeMachineButton_Click()">Maschine wechseln</button>
+				<button id="ChangeMachineButton" xxonclick="ChangeMachineButton_Click()">Maschine wechseln</button>
 			</div>
 
 	</form>
