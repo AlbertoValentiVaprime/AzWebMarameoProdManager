@@ -147,7 +147,6 @@ function AttachEvents() {
 
 function StartProcessButton_Click() {
     try {
-        alert('StartProcessButton_Click');
         if (!document.getElementById("StartProcessButton").disabled) {
             document.getElementById("Input").Text = DataContextAddIns.StartProcessingCommand;
             transmitInput();
